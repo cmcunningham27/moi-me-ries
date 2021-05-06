@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS me-moirs_db;
+CREATE DATABASE me-moirs_db;
