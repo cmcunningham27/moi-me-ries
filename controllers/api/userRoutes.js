@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
     };
 });
 
+//updates user
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.update(req.body, {
@@ -37,6 +38,7 @@ router.put('/:id', withAuth, async (req, res) => {
     }
 });
 
+//user login
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
@@ -67,6 +69,7 @@ router.post('/login', async (req, res) => {
     };
 });
 
+//delete user
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.destroy({
@@ -85,6 +88,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 })
 
+//user logout
 router.post('/logout', (req, res) => {
     if(req.session.logged_in){
         req.session.destroy(() => {
