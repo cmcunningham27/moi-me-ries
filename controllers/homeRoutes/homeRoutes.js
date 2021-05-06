@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
         });
     } catch (err) {
         res.status(500).json(err);
-    };
+    }
 });
 
 router.get('/profile', withAuth, async (req, res) => {
@@ -22,18 +22,18 @@ router.get('/profile', withAuth, async (req, res) => {
         const user = userData.get({ plain: true });
 
         res.render('profile', {
-            ...user,
+            user,
             logged_in: true
         });
     } catch (err) {
         res.status(500).json(err);
-    };
+    }
 });
 
 router.get('/login', (req, res) => {
     if(res.session.logged_in){
         res.redirect('/profile');
-    };
+    }
 
     res.render('login');
 });

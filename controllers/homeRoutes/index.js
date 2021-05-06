@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const homeRoutes  = require('./homeRoutes');
-const withAuth = require('../../utils/auth');
+const homeRoutes = require('./homeRoutes');
+// const withAuth = require('../../utils/auth');
 
 router.use('/', homeRoutes);
 
