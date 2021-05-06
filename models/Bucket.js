@@ -23,10 +23,10 @@ Bucket.init({
     },
 },
     {
-     sequelize,
-     freezeTableName: true,
-     underscored: true,
-     modelName: 'bucket'
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'bucket'
     }
 );
 module.exports = Bucket;
