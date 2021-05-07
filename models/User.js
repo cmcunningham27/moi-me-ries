@@ -8,6 +8,7 @@ class User extends Model {
     }
 }
 
+
 User.init(
     {
         id: {
@@ -15,6 +16,7 @@ User.init(
             autoIncrement: true,
             primaryKey: true,
             allowNull: false,
+
         },
         name: {
             type: DataTypes.STRING,
@@ -36,6 +38,7 @@ User.init(
             },
         },
     },
+
     {
         hooks: {
             beforeCreate: async (newUserData) => {

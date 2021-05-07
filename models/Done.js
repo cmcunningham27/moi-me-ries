@@ -3,8 +3,7 @@ const sequelize = require('../config/connection');
 
 class Done extends Model {}
 
-Done.init(
-    {
+Done.init({
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -33,12 +32,13 @@ Done.init(
                 key: 'id'
             },
         },
-    },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'done'
-    }
+},
+{
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'done'
+}
+
 );
 module.exports = Done;

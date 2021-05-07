@@ -3,8 +3,7 @@ const sequelize = require('../config/connection');
 
 class ToDo extends Model {}
 
-ToDo.init(
-    {
+ToDo.init({
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -22,12 +21,12 @@ ToDo.init(
                 key: 'id'
             },
         },
-    },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'todo'
-    }
+},
+{
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'todo'
+}
 );
 module.exports = ToDo;

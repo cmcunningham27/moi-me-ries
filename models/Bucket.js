@@ -3,8 +3,7 @@ const sequelize = require('../config/connection');
 
 class Bucket extends Model {}
 
-Bucket.init(
-    {
+Bucket.init({
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -22,12 +21,13 @@ Bucket.init(
                 key: 'id'
             },
         },
-    },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'bucket'
-    }
+},
+{
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'bucket'
+}
+
 );
 module.exports = Bucket;
