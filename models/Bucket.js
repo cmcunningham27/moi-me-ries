@@ -29,6 +29,5 @@ Bucket.init(
         underscored: true,
         modelName: 'bucket'
     }
-
 );
 module.exports = Bucket;

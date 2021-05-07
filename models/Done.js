@@ -40,6 +40,5 @@ Done.init(
         underscored: true,
         modelName: 'done'
     }
-
 );
 module.exports = Done;
