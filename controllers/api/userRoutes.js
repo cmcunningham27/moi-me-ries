@@ -71,7 +71,9 @@ router.put('/:id', withAuth, async (req, res) => {
 
 //user login
 router.post('/login', async (req, res) => {
+    console.log('before try');
     try {
+        console.log('after try');
         const userData = await User.findOne({
             where: {
                 email: req.body.email
@@ -96,6 +98,7 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (err) {
+        console.log('catch');
         res.status(500).json(err);
     }
 });
