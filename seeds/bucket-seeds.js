@@ -6,11 +6,11 @@ const bucketData = [
         user_id: 1
     },
     {
-        name: 'Lernantino Bucket',
+        title: 'Lernantino Bucket',
         user_id: 2
     },
     {
-        name: 'Amikov Bucket',
+        title: 'Amikov Bucket',
         user_id: 3
     }
 ];
