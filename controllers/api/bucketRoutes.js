@@ -4,12 +4,13 @@ const withAuth = require('../../utils/auth');
 
 
 //creates new bucket in db
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
+        //need to add req.session.user_id
         const bucketData = await Bucket.create(req.body);
 
         if(!bucketData){
-            res.status(404).json({message: 'Cannot find that bucket id'});
+            res.status(404).json({ message: 'Cannot find that bucket id' });
         }
 
         res.status(200).json(bucketData);
@@ -19,31 +20,38 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 //get all users buckets
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const bucketData = await Bucket.findAll({
+        const bucketData = await Bucket.findAll(/*{
             where: {
                 //user_id is prop of bucket model req.session.user_id is the current users id
                 user_id: req.sessions.user_id
-            }
-        });
+            },
+            include: [{ model: 'Todo' }, { model: 'Done' }]
+        }*/);
 
         if(!bucketData){
             res.status(404).json({message: 'No buckets in storage'});
         }
 
+        res.json(bucketData);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
 //gets single bucket
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
-        const bucketData = await Bucket.findByPk(req.params.id);
+        const bucketData = await Bucket.findByPk(req.params.id/*, {
+            include: [{ model: 'Todo' }, { model: 'Done' }]
+        }*/);
 
+        if(!bucketData){
+            res.status(404).json({ message: 'bucket not found'});
         //need to figure out what this page is actually called
         // res.render('buckets');
+        }
 
         res.status(200).json(bucketData);
     } catch (err) {
@@ -71,7 +79,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 //delete bucket
-router.delete('./:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const bucketData = await Bucket.destroy({
             where: {

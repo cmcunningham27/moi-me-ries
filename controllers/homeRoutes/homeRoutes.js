@@ -31,11 +31,11 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    if(res.session.logged_in){
+    if(req.session.logged_in){
         res.redirect('/profile');
     }
 
-    res.render('login');
+    // res.render('login');
 });
 
 module.exports = router;
