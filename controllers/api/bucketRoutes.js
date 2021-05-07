@@ -6,6 +6,7 @@ const withAuth = require('../../utils/auth');
 //creates new bucket in db
 router.post('/', withAuth, async (req, res) => {
     try {
+        //need to add req.session.user_id
         const bucketData = await Bucket.create(req.body);
 
         if(!bucketData){
@@ -71,7 +72,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 //delete bucket
-router.delete('./:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const bucketData = await Bucket.destroy({
             where: {

@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS moi-me-ries_db;
-CREATE DATABASE moi-me-ries_db;
+DROP DATABASE IF EXISTS moi_me_ries_db;
+CREATE DATABASE moi_me_ries_db;
