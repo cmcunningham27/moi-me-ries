@@ -22,11 +22,11 @@ ToDo.init({
         },
     },
 },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'todo'
-    }
+{
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'todo'
+}
 );
 module.exports = ToDo;
