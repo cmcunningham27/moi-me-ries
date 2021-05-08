@@ -2,14 +2,14 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
+//find all users
 router.get('/', async(req, res) => {
     console.log('hello', req);
     try {
         const userData = await User.findAll();
 
         if(!userData){
-            res.json({ message: 'no users to find'});
+            res.json({ message: 'no users to find' });
         }
 
         res.json(userData);
@@ -18,13 +18,13 @@ router.get('/', async(req, res) => {
     }
 });
 
-
+//find one user
 router.get('/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id);
 
         if(!userData){
-            res.status(404).json({ message: 'user not found'});
+            res.status(404).json({ message: 'user not found' });
         }
 
         res.json(userData);
@@ -34,7 +34,7 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 //route for new users to sign up. creates a new user in database.
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create(req.body);
         req.session.save(() => {
@@ -88,17 +88,19 @@ router.post('/login', async (req, res) => {
 
         if(!validPassword){
             res.status(400).json({ message: 'login failed: email or password incorrect.'});
+
         }
 
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
 
-            res.status(200).json({ message: 'log in successful'});
+            // res.status(200).json({ message: 'log in successful'});
+            res.redirect('/buckets');
         });
 
     } catch (err) {
-        console.log('catch');
+        console.log('catch', err);
         res.status(500).json(err);
     }
 });

@@ -20,22 +20,23 @@ router.post('/', async (req, res) => {
 });
 
 //get all users buckets
-router.get('/', async (req, res) => {
+router.get('/buckets', async (req, res) => {
     try {
-        const bucketData = await Bucket.findAll(/*{
+        const bucketData = await Bucket.findAll({
             where: {
                 //user_id is prop of bucket model req.session.user_id is the current users id
                 user_id: req.sessions.user_id
             },
             include: [{ model: 'Todo' }, { model: 'Done' }]
-        }*/);
+        });
 
         if(!bucketData){
-            res.status(404).json({message: 'No buckets in storage'});
+            res.status(404).json({ message: 'No buckets in storage' });
         }
 
-        res.json(bucketData);
+        res.render('bucket');
     } catch (err) {
+        console.log('bucket route', err);
         res.status(500).json(err);
     }
 });
@@ -48,7 +49,7 @@ router.get('/:id', async (req, res) => {
         }*/);
 
         if(!bucketData){
-            res.status(404).json({ message: 'bucket not found'});
+            res.status(404).json({ message: 'bucket not found' });
         //need to figure out what this page is actually called
         // res.render('buckets');
         }
@@ -69,7 +70,7 @@ router.put('/:id', withAuth, async (req, res) => {
         });
 
         if(!bucketData){
-            res.status(404).json({ message: 'cannot find bucket'});
+            res.status(404).json({ message: 'cannot find bucket' });
         }
 
         res.status(200).json(bucketData);
@@ -88,7 +89,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         });
 
         if(!bucketData){
-            res.status(404).json({ message: 'cannot find bucket'});
+            res.status(404).json({ message: 'cannot find bucket' });
         }
 
         res.status(200).json(bucketData);

@@ -9,12 +9,12 @@ router.get('/', async (req, res) => {
         const doneData = await Done.findAll();
 
         if(!doneData){
-            res.status(404).json({ message: 'No splashes here, make one'});
+            res.status(404).json({ message: 'No splashes here, make one' });
         }
 
         res.status(200).json(doneData);
     } catch (err) {
-        res.status(00).json(err);
+        res.status(500).json(err);
     }
 });
 
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
         const doneData = await Done.findByPk(req.params.id);
 
         if(!doneData){
-            res.status(404).json({ message: 'cannot fine splash you were looking for'});
+            res.status(404).json({ message: 'cannot fine splash you were looking for' });
         }
 
         res.status(200).json(doneData);
@@ -54,7 +54,7 @@ router.put('/:id', async (req, res) => {
         });
 
         if(!doneData){
-            res.status(404).json({ message: 'cannot find the splash you were looking for'});
+            res.status(404).json({ message: 'cannot find the splash you were looking for' });
         }
 
         res.status(200).json(doneData);
@@ -73,7 +73,7 @@ router.delete('/:id', async (req, res) => {
         });
 
         if(!doneData){
-            res.status(404).json({ message: 'could not find splash you were looking for'});
+            res.status(404).json({ message: 'could not find splash you were looking for' });
         }
 
         res.status(200).json(doneData);
