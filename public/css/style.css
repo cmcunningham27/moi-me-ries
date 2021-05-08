@@ -55,3 +55,7 @@ main {
     padding: 10px;
     background-image: linear-gradient(rgba(248, 11, 11, 100%),  rgba(12, 9, 188, 20%));
 }
+
+.bucket {
+    background-color: rgba(12, 9, 188, 20%);
+}
