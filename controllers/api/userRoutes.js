@@ -9,7 +9,7 @@ router.get('/', async(req, res) => {
         const userData = await User.findAll();
 
         if(!userData){
-            res.json({ message: 'no users to find'});
+            res.json({ message: 'no users to find' });
         }
 
         res.json(userData);
@@ -24,7 +24,7 @@ router.get('/:id', withAuth, async (req, res) => {
         const userData = await User.findByPk(req.params.id);
 
         if(!userData){
-            res.status(404).json({ message: 'user not found'});
+            res.status(404).json({ message: 'user not found' });
         }
 
         res.json(userData);

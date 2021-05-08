@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
         }*/);
 
         if(!bucketData){
-            res.status(404).json({message: 'No buckets in storage'});
+            res.status(404).json({ message: 'No buckets in storage' });
         }
 
         res.json(bucketData);
@@ -48,7 +48,7 @@ router.get('/:id', async (req, res) => {
         }*/);
 
         if(!bucketData){
-            res.status(404).json({ message: 'bucket not found'});
+            res.status(404).json({ message: 'bucket not found' });
         //need to figure out what this page is actually called
         // res.render('buckets');
         }
@@ -69,7 +69,7 @@ router.put('/:id', withAuth, async (req, res) => {
         });
 
         if(!bucketData){
-            res.status(404).json({ message: 'cannot find bucket'});
+            res.status(404).json({ message: 'cannot find bucket' });
         }
 
         res.status(200).json(bucketData);
@@ -88,7 +88,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         });
 
         if(!bucketData){
-            res.status(404).json({ message: 'cannot find bucket'});
+            res.status(404).json({ message: 'cannot find bucket' });
         }
 
         res.status(200).json(bucketData);

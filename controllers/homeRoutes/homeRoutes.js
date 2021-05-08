@@ -35,6 +35,8 @@ router.get('/login', (req, res) => {
         res.redirect('/profile');
     }
 
+    //redirect so we only have the one log in route/page
+    res.redirect('/api/users/login');
     // res.render('login');
 });
 

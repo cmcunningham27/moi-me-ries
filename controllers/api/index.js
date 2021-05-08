@@ -6,6 +6,7 @@ const doneRoutes =require('./doneRoutes');
 
 router.use('/users', userRoutes);
 router.use('/buckets', bucketRoutes);
+//bucket routes should call drops & splashes
 router.use('/drops', toDoRoutes);
 router.use('/splashes', doneRoutes);
 
