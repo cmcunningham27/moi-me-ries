@@ -20,22 +20,23 @@ router.post('/', async (req, res) => {
 });
 
 //get all users buckets
-router.get('/', async (req, res) => {
+router.get('/buckets', async (req, res) => {
     try {
-        const bucketData = await Bucket.findAll(/*{
+        const bucketData = await Bucket.findAll({
             where: {
                 //user_id is prop of bucket model req.session.user_id is the current users id
                 user_id: req.sessions.user_id
             },
             include: [{ model: 'Todo' }, { model: 'Done' }]
-        }*/);
+        });
 
         if(!bucketData){
             res.status(404).json({ message: 'No buckets in storage' });
         }
 
-        res.json(bucketData);
+        res.render('bucket');
     } catch (err) {
+        console.log('bucket route', err);
         res.status(500).json(err);
     }
 });
