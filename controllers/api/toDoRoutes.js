@@ -4,8 +4,12 @@ const { ToDo } = require('../../models');
 
 //create new drop/todo. -not including a bucket id
 router.post('/', async (req, res) => {
+    console.log('!!!!!!!!!!!!!!', req.session.user_id);
     try {
-        const toDoData = await ToDo.create(req.body);
+        const toDoData = await ToDo.create({
+            ...req.body,
+            bucket_id: req.session.user_id
+        });
         res.status(200).json(toDoData);
     } catch (err) {
         res.status(500).json(err);
@@ -13,10 +17,10 @@ router.post('/', async (req, res) => {
 });
 
 //get all users todos for selected bucket. prob need more specificicty on route
+//user only has one bucket. If user searches other buckets maybe this is needed.
 router.get('/', async (req, res) => {
     try {
         const toDoData = await ToDo.findAll(); //do I need to add a where or will it know only toselect user
-
         if(!toDoData){
             res.status(404).json({ message: 'no drops here, make it rain'});
         }
@@ -44,6 +48,7 @@ router.get('/:id', async (req, res) => {
 
 //update drop/todo
 //cannot asign bucket_id w/ put
+//bucket id should be same for each of users todo/dones
 router.put('/:id', async (req, res) => {
     try {
         const toDoData = await ToDo.update(req.body, {

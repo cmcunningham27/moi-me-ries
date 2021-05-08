@@ -4,6 +4,7 @@ const withAuth = require('../../utils/auth');
 
 
 //creates new bucket in db
+//not needed user will have a bucket is part of account/profile
 router.post('/', async (req, res) => {
     try {
         //need to add req.session.user_id
@@ -20,6 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 //get all users buckets
+//user only has one bucket
 router.get('/buckets', async (req, res) => {
     try {
         const bucketData = await Bucket.findAll({
@@ -42,6 +44,7 @@ router.get('/buckets', async (req, res) => {
 });
 
 //gets single bucket
+//for searches of other users buckets
 router.get('/:id', async (req, res) => {
     try {
         const bucketData = await Bucket.findByPk(req.params.id/*, {
@@ -61,6 +64,7 @@ router.get('/:id', async (req, res) => {
 });
 
 //update bucket
+//not needed bucket is static.
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const bucketData = await Bucket.update(req.body, {
@@ -80,6 +84,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 //delete bucket
+//connot delete bucket as every user will always have one
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const bucketData = await Bucket.destroy({
