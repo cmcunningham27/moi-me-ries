@@ -1,6 +1,37 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
+
+router.get('/', async(req, res) => {
+    console.log('hello', req);
+    try {
+        const userData = await User.findAll();
+
+        if(!userData){
+            res.json({ message: 'no users to find'});
+        }
+
+        res.json(userData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+router.get('/:id', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.params.id);
+
+        if(!userData){
+            res.status(404).json({ message: 'user not found'});
+        }
+
+        res.json(userData);
+    } catch (err) {
+        res.status(500).json(userData);
+    }
+});
 
 //route for new users to sign up. creates a new user in database.
 router.post('/', async (req, res) => {
@@ -40,7 +71,9 @@ router.put('/:id', withAuth, async (req, res) => {
 
 //user login
 router.post('/login', async (req, res) => {
+    console.log('before try');
     try {
+        console.log('after try');
         const userData = await User.findOne({
             where: {
                 email: req.body.email
@@ -65,6 +98,7 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (err) {
+        console.log('catch');
         res.status(500).json(err);
     }
 });

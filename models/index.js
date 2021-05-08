@@ -3,6 +3,7 @@ const Bucket = require('./Bucket');
 const ToDo = require('./ToDo');
 const Done = require('./Done');
 
+//shoulb be has many right?
 User.hasOne(Bucket, {
     foreignKey: 'user_id',
 
