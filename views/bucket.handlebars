@@ -1,0 +1,33 @@
+<div class="nav d-flex flex-row bg-light p-2 ps-3 pe-3">
+    {{!-- add href later --}}
+    <a class="bucket p-1 rounded text-dark" href="#">BUCKET</a>
+    {{!-- add href later --}}
+    <a class="login text-dark ms-auto" href="#">LOGOUT</a>
+</div>
+<div class="d-flex flex-row">
+    <div class="aside bg-light p-4 vh-100">
+        {{#if bucketsToDo.length}}
+        <h5><u>DROPS:</u></h5>
+        <ol>
+            {{#each ToDo as |bucket|}}
+            <li>{{bucket.title}}</li>
+            {{/each}}
+        </ol>
+        {{/if}}
+        {{#if bucketsDone.length}}
+        <h5 class="pt-5"><u>SPILLS:</u></h5>
+        <ol>
+            {{#each done as |bucket|}}
+            <li style="text-decoration:line-through">{{bucket.title}}</li>
+            {{/each}}
+        </ol>
+        {{/if}}
+    </div>
+    <div class="section bg-light p-3 vh-100">
+        <div class="newBucket d-flex flex-row m-10 p-3 h-15 rounded">
+            <input type="text" class="form-control mt-10 me-3" placeholder="Add to your Bucket" aria-label="Add to your Bucket">
+            <button class="drop bg-dark rounded text-light">DROP</button>
+        </div>
+        {{!-- later plug in code for rendering last 5 spilled drops --}}
+    </div>
+</div>
