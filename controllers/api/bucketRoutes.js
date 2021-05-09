@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Bucket, ToDo, Done } = require('../../models');
+const { User, Bucket, ToDo, Done } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -11,13 +11,13 @@ router.get('/', withAuth, async (req, res) => {
     try {
         console.log('get bucket', req.session);
         // const bucketData = await ToDo.findAll({
-        const bucketData = await Done.findAll({
+        const bucketData = await ToDo.findAll({
             where: {
                 //user_id is prop of bucket model req.session.user_id is the current users id
                 user_id: req.session.user_id
             },
             // include: [{ model: Done }]
-            include: [{ model: ToDo }]
+            include: [{ model: Done }]
         });
 
         if(!bucketData){
@@ -31,6 +31,8 @@ router.get('/', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
 
 //gets single bucket
 //for searches of other users bucket?

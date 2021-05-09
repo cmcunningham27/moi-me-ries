@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Bucket, ToDo, Done } = require('../../models');
+const { User, ToDo, Done } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -47,26 +47,23 @@ router.get('/', async (req, res) => {
 //     }
 // });
 
-//still needs a profile handlebar to go to
+
+
 router.get('/bucket', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
-            // where: {
-            //     //user_id is prop of bucket model req.session.user_id is the current users id
-            //     id: req.sessions.user_id
-            // },
             attributes: { exclude: ['password'] },
-            include: [{ model: Bucket }, { model: ToDo, attributes: ['title'] }, { model: Done, attributes: ['title'] }],
+            include: [{ model: ToDo, attributes: ['title'] }, { model: Done, attributes: ['title'] }],
         });
 
         const user = userData.get({ plain: true });
+        console.log(user);
 
         res.render('bucket', {
             user,
             logged_in: true
         });
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });

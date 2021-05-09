@@ -6,19 +6,21 @@
 </div>
 <div class="d-flex flex-row">
     <div class="aside bg-light p-4 vh-100">
-        {{#if ToDo.length}}
+        {{#if logged_in}}
         <h5><u>DROPS:</u></h5>
         <ol>
-            {{#each ToDo as |todo|}}
-            <li>{{todo.title}}</li>
+            {{#each user.todos as |todo|}}
+            <a href="">
+                <li>{{todo.title}}</li>
+            </a>
             {{/each}}
         </ol>
-        {{/if}}
-        {{#if Done.length}}
         <h5 class="pt-5"><u>SPLASHES:</u></h5>
         <ol>
-            {{#each Done as |done|}}
-            <li style="text-decoration:line-through">{{done.title}}</li>
+            {{#each user.dones as |done|}}
+            <a href="">
+                <li style="text-decoration:line-through">{{done.title}}</li>
+            </a>
             {{/each}}
         </ol>
         {{/if}}
