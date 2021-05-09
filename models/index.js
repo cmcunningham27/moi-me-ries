@@ -14,22 +14,22 @@ Bucket.belongsTo(User, {
 });
 
 
-Bucket.hasMany(ToDo, {
-    foreignKey: 'bucket_id',
+User.hasMany(ToDo, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
-ToDo.belongsTo(Bucket, {
-    foreignKey: 'bucket_id',
+ToDo.belongsTo(User, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
 
-Bucket.hasMany(Done, {
-    foreignKey: 'bucket_id',
+User.hasMany(Done, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
-Done.belongsTo(Bucket, {
-    foreignKey: 'bucket_id',
+Done.belongsTo(User, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 

@@ -9,7 +9,7 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const toDoData = await ToDo.create({
             ...req.body,
-            bucket_id: req.session.user_id
+            user_id: req.session.user_id
         });
         res.status(200).json(toDoData);
     } catch (err) {
