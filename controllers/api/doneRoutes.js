@@ -1,11 +1,13 @@
 const { Done } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 const router = require('express').Router();
 
 
 //get all splash/done probably need more specificity to make sure it is attatched to user and bucket
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
+        //include the original todo/drop info? look hoe far i came?
         const doneData = await Done.findAll();
 
         if(!doneData){
@@ -19,7 +21,7 @@ router.get('/', async (req, res) => {
 });
 
 //get one splash/done probably need more specificity see other get ^^^
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const doneData = await Done.findByPk(req.params.id);
 
@@ -34,7 +36,7 @@ router.get('/:id', async (req, res) => {
 });
 
 //create splash/todo
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const doneData = await Done.create({
             ...req.body,
@@ -47,8 +49,8 @@ router.post('/', async (req, res) => {
     }
 });
 
-//update splash/todo
-router.put('/:id', async (req, res) => {
+//update splash/done
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const doneData = await Done.update(req.body, {
             where: {
@@ -67,7 +69,7 @@ router.put('/:id', async (req, res) => {
 });
 
 //delete splash/done
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const doneData = await Done.destroy({
             where: {
