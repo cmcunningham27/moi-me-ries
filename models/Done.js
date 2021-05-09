@@ -19,10 +19,10 @@ Done.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        bucket_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'bucket',
+                model: 'user',
                 key: 'id'
             },
         },

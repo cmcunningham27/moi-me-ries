@@ -14,7 +14,7 @@ router.get('/', withAuth, async (req, res) => {
         const bucketData = await Done.findAll({
             where: {
                 //user_id is prop of bucket model req.session.user_id is the current users id
-                bucket_id: req.session.user_id
+                user_id: req.session.user_id
             },
             // include: [{ model: Done }]
             include: [{ model: ToDo }]

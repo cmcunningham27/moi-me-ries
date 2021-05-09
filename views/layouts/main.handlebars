@@ -12,9 +12,11 @@
 </head>
 <body>
     <div class="top h-100 d-flex flex-column text-body">
+        {{#if logged_in}}
         <div class="userName ps-2 mb-0">
-            <h5></h5>
+            <h5>{{user.name}}</h5>
         </div>
+        {{/if}}
         <h1>M<span class="circle rounded-circle"></span>I-ME-RIES</h1>
     </div>
     <main class="main vh-100">

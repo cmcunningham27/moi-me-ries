@@ -6,19 +6,19 @@
 </div>
 <div class="d-flex flex-row">
     <div class="aside bg-light p-4 vh-100">
-        {{#if bucketsToDo.length}}
+        {{#if ToDo.length}}
         <h5><u>DROPS:</u></h5>
         <ol>
-            {{#each ToDo as |bucket|}}
-            <li>{{bucket.title}}</li>
+            {{#each ToDo as |todo|}}
+            <li>{{todo.title}}</li>
             {{/each}}
         </ol>
         {{/if}}
-        {{#if bucketsDone.length}}
+        {{#if Done.length}}
         <h5 class="pt-5"><u>SPLASHES:</u></h5>
         <ol>
-            {{#each done as |bucket|}}
-            <li style="text-decoration:line-through">{{bucket.title}}</li>
+            {{#each Done as |done|}}
+            <li style="text-decoration:line-through">{{done.title}}</li>
             {{/each}}
         </ol>
         {{/if}}
