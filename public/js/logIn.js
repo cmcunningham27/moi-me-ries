@@ -17,7 +17,7 @@ const loginBtnFn = async (event) => {
         });
 
         if(response.ok){
-            document.location.replace('/buckets');
+            document.location.replace('/bucket');
         } else {
             alert(response.statusText);
         }
@@ -41,7 +41,7 @@ const signupBtnFn = async (event) => {
         });
 
         if(response.ok){
-            document.location.replace('/buckets');
+            document.location.replace('/bucket');
         } else {
             alert(response.status);
         }

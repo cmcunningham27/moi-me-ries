@@ -1,40 +1,31 @@
 const router = require('express').Router();
-const { Bucket } = require('../../models');
+const { Bucket, ToDo, Done } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-//creates new bucket in db
-router.post('/', async (req, res) => {
+//user only has one bucket
+//keep for general searches/browsing?
+
+//todo + done = bucketData
+router.get('/', withAuth, async (req, res) => {
     try {
-        //need to add req.session.user_id
-        const bucketData = await Bucket.create(req.body);
-
-        if(!bucketData){
-            res.status(404).json({ message: 'Cannot find that bucket id' });
-        }
-
-        res.status(200).json(bucketData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-//get all users buckets
-router.get('/buckets', async (req, res) => {
-    try {
-        const bucketData = await Bucket.findAll({
+        console.log('get bucket', req.session);
+        // const bucketData = await ToDo.findAll({
+        const bucketData = await Done.findAll({
             where: {
                 //user_id is prop of bucket model req.session.user_id is the current users id
-                user_id: req.sessions.user_id
+                bucket_id: req.session.user_id
             },
-            include: [{ model: 'Todo' }, { model: 'Done' }]
+            // include: [{ model: Done }]
+            include: [{ model: ToDo }]
         });
 
         if(!bucketData){
-            res.status(404).json({ message: 'No buckets in storage' });
+            res.status(404).json({ message: 'There is nothing in your bucket.' });
         }
 
-        res.render('bucket');
+        res.status(200).json(bucketData);
+        // res.render('bucket');
     } catch (err) {
         console.log('bucket route', err);
         res.status(500).json(err);
@@ -42,7 +33,8 @@ router.get('/buckets', async (req, res) => {
 });
 
 //gets single bucket
-router.get('/:id', async (req, res) => {
+//for searches of other users bucket?
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const bucketData = await Bucket.findByPk(req.params.id/*, {
             include: [{ model: 'Todo' }, { model: 'Done' }]
@@ -51,7 +43,7 @@ router.get('/:id', async (req, res) => {
         if(!bucketData){
             res.status(404).json({ message: 'bucket not found' });
         //need to figure out what this page is actually called
-        // res.render('buckets');
+        // res.render('bucket');
         }
 
         res.status(200).json(bucketData);
@@ -60,42 +52,5 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-//update bucket
-router.put('/:id', withAuth, async (req, res) => {
-    try {
-        const bucketData = await Bucket.update(req.body, {
-            where: {
-                id: req.params.id
-            }
-        });
-
-        if(!bucketData){
-            res.status(404).json({ message: 'cannot find bucket' });
-        }
-
-        res.status(200).json(bucketData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-//delete bucket
-router.delete('/:id', withAuth, async (req, res) => {
-    try {
-        const bucketData = await Bucket.destroy({
-            where: {
-                id: req.params.id
-            }
-        });
-
-        if(!bucketData){
-            res.status(404).json({ message: 'cannot find bucket' });
-        }
-
-        res.status(200).json(bucketData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 module.exports = router;

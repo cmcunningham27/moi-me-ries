@@ -3,7 +3,7 @@ const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //find all users
-router.get('/', async(req, res) => {
+router.get('/', withAuth, async(req, res) => {
     console.log('hello', req);
     try {
         const userData = await User.findAll();
@@ -96,7 +96,8 @@ router.post('/login', async (req, res) => {
             req.session.logged_in = true;
 
             // res.status(200).json({ message: 'log in successful'});
-            res.redirect('/buckets');
+            //redirect to profile when profile exists?
+            res.redirect('/bucket');
         });
 
     } catch (err) {
@@ -125,7 +126,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 //user logout
-router.post('/logout', (req, res) => {
+router.post('/logout', withAuth, (req, res) => {
     if(req.session.logged_in){
         req.session.destroy(() => {
             res.status(204).end();
