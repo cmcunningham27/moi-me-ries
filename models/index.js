@@ -35,14 +35,14 @@ Done.belongsTo(User, {
 
 
 
-ToDo.hasMany(Done, {
-    foreignKey: 'todo_id',
-    onDelete: 'CASCADE'
-});
-Done.belongsTo(ToDo, {
-    foreignKey: 'todo_id',
-    onDelete: 'CASCADE'
-});
+// ToDo.hasMany(Done, {
+//     foreignKey: 'todo_id',
+//     onDelete: 'CASCADE'
+// });
+// Done.belongsTo(ToDo, {
+//     foreignKey: 'todo_id',
+//     onDelete: 'CASCADE'
+// });
 
 module.exports = {
     User,

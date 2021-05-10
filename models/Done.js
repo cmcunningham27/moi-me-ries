@@ -17,7 +17,7 @@ Done.init(
         },
         content: {
             type: DataTypes.STRING,
-            allowNull: false
+            defaultValue: 'null'
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -26,13 +26,13 @@ Done.init(
                 key: 'id'
             },
         },
-        todo_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'todo',
-                key: 'id'
-            },
-        },
+        // todo_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'todo',
+        //         key: 'id'
+        //     },
+        // },
     },
     {
         sequelize,

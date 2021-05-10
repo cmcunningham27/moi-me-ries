@@ -1,4 +1,4 @@
-const { Done } = require('../../models');
+const { Done, ToDo } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 const router = require('express').Router();
@@ -38,13 +38,26 @@ router.get('/:id', withAuth, async (req, res) => {
 //create splash/todo
 router.post('/', withAuth, async (req, res) => {
     try {
+        // console.log(req.body);
         const doneData = await Done.create({
             ...req.body,
             user_id: req.session.user_id
         });
 
+        // const noMoreToDo = await ToDo.destroy({
+        //     where: {
+        //         title: req.body.title
+        //     }
+        // });
+
+        // if (!noMoreToDo) {
+        //     res.status(404).json('No ToDo item found!');
+        // }
+
+        // res.status(200).json(noMoreToDo);
         res.status(200).json(doneData);
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });

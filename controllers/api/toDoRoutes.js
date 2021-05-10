@@ -71,6 +71,7 @@ router.put('/:id', withAuth, async (req, res) => {
 //delete drop
 router.delete('/:id', withAuth, async (req, res) => {
     try {
+        console.log(req.params.id);
         const toDoData = await ToDo.destroy({
             where: {
                 id: req.params.id
@@ -82,7 +83,8 @@ router.delete('/:id', withAuth, async (req, res) => {
         }
 
         res.status(200).json(toDoData);
-    } catch (error) {
+    } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
