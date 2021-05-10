@@ -48,6 +48,7 @@ main {
 
 .join {
     height: 40px;
+    margin: 15px;
 }
 
 .quill {
@@ -58,4 +59,8 @@ main {
 
 .bucket {
     background-color: rgba(12, 9, 188, 20%);
+}
+
+.new {
+    background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
 }

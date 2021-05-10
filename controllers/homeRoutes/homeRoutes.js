@@ -53,11 +53,12 @@ router.get('/bucket', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: ToDo, attributes: ['title'] }, { model: Done, attributes: ['title'] }],
+            include: [{ model: ToDo, attributes: ['title', 'id'] }, { model: Done, attributes: ['title'] }],
         });
 
         const user = userData.get({ plain: true });
-        console.log(user);
+
+        // console.log(userData);
 
         res.render('bucket', {
             user,
@@ -67,6 +68,43 @@ router.get('/bucket', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/splash', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: ToDo, attributes: ['title', 'id'] }, { model: Done, attributes: ['title'] }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('newsplash', {
+            user,
+            logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// router.get('/splash', withAuth, async (req, res) => {
+//     try {
+//         const splashData = await Done.findOne({
+//             where: {
+//                 title: req.body
+//             }
+//         });
+
+//         const splash = splashData.get({ plain: true });
+
+//         res.render('newsplash', {
+//             splash,
+//             logged_in: true
+//         });
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 router.get('/login', (req, res) => {
     try {
