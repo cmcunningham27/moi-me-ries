@@ -9,14 +9,13 @@
         {{#if logged_in}}
         <h5><u>DROPS:</u></h5>
         <ol>
-            {{!-- {{#if user.todos.length}} --}}
             {{#each user.todos as |todo|}}
-            {{!-- ; getNewSplashBtnFn('{{todo.title}}'; removeDropBtnFn('{{id}}')createNewSplashBtnFn('{{todo.title}}', '{{user.id}}'); --}}
-            <a href="" class="makeSplash text-dark" onclick="toggleFn('{{todo.title}}'); return false;">
+            {{log 'todo' todo}}
+            {{!-- ; getNewSplashBtnFn('{{todo.title}}'; removeDropBtnFn({{id}}); createNewSplashBtnFn('{{todo.title}}', '{{user.id}}'); --}}
+            <a href="" class="makeSplash text-dark" onclick="toggleFn('{{todo.title}}', {{todo.user_id}}); return false;">
                 <li>{{todo.title}}</li>
             </a>
             {{/each}}
-            {{!-- {{/if}} --}}
         </ol>
         <h5 class="pt-5"><u>SPLASHES:</u></h5>
         <ol>
@@ -36,12 +35,12 @@
         </div>
 
         <div id="newSplash_form" class="new flex-column m-10 p-3 rounded">
-            <h5><u>What do you want to add to your  SPLASHED DROP?</u></h5><br>
+            <h5><u>What do you want to add to your SPLASHED DROP?</u></h5><br>
             <p id="title">
-                Tell us about your SPLASH adventure:
+                
             </p>
             <textarea id="content"></textarea>
-            <button class="splash join ms-auto bg-dark text-light m-15">
+            <button class="newSplash join ms-auto bg-dark text-light m-15">
                 <h3>SPLASH</h3>
             </button>
         </div>

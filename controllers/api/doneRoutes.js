@@ -37,8 +37,9 @@ router.get('/:id', withAuth, async (req, res) => {
 
 //create splash/todo
 router.post('/', withAuth, async (req, res) => {
+    console.log(req.body);
     try {
-        // console.log(req.body);
+        
         const doneData = await Done.create({
             ...req.body,
             user_id: req.session.user_id
