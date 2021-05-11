@@ -47,6 +47,19 @@ const newSplashBtnFn = async (title, user_id) => {
     }
 };
 
+const addDrop =async()=>{
+    const title=document.querySelector('.dropItem').value;
+    const response = await fetch('/api/drops', {
+        method: 'POST',
+        body: JSON.stringify({ title }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+        document.location.replace('/bucket');
+    } else {
+        alert(response.statusText);
+    }
+};
 // const li = document.querySelectorAll('.makeSplash');// if (document.querySelector('.makeSplash')) {
 document.querySelector('#dropList').addEventListener('click', (event) => {
     event.preventDefault();
@@ -71,11 +84,15 @@ document.querySelector('.newSplash').addEventListener('click', (event) => {
 
     newSplashBtnFn(title, user);
 });
+
+
+document.querySelector('.drop'). addEventListener('click', addDrop);
 // document.querySelector('.makeSplash').addEventListener('click', (event) => {
 // });
 // }
 
 
-if (document.querySelector('.splash')) {
-    document.querySelector('.splash').addEventListener('click', newSplashBtnFn);
-}
+// if (document.querySelector('.splash')) {
+//     document.querySelector('.splash').addEventListener('click', newSplashBtnFn);
+// }
+
