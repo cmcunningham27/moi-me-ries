@@ -80,7 +80,7 @@ document.querySelector('.newSplash').addEventListener('click', (event) => {
     event.preventDefault();
     const title = event.target.dataset.title;
     const user = event.target.dataset.user;
-    console.log(title, user);
+    // console.log(title, user);
 
     newSplashBtnFn(title, user);
 });

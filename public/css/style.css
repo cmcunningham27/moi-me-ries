@@ -67,4 +67,12 @@ main {
 
 form {
     margin-top: 15px;
+
+.shortSplash{
+    background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%))
+}
+
+.imgPlaceHolder{
+    height: 100px;
+    width: 100px;
 }
