@@ -8,13 +8,15 @@
     <div class="aside bg-light p-4 vh-100">
         {{#if logged_in}}
         <h5><u>DROPS:</u></h5>
-        <ol>
+        <ol id="dropList">
             {{#each user.todos as |todo|}}
-            {{log 'todo' todo}}
-            {{!-- ; getNewSplashBtnFn('{{todo.title}}'; removeDropBtnFn({{id}}); createNewSplashBtnFn('{{todo.title}}', '{{user.id}}'); --}}
-            <a href="" class="makeSplash text-dark" onclick="toggleFn('{{todo.title}}', {{todo.user_id}}); return false;">
-                <li>{{todo.title}}</li>
-            </a>
+            {{!-- {{log 'todo' todo}} --}}
+            {{!--  --}}
+            {{!-- <a href=""  --}}
+            {{!-- <span class="makeSplash text-dark" data-id="{{todo.id}}" onclick="removeDropBtnFn({{todo.id}}); toggleFn('{{todo.title}}', {{todo.user_id}})">  --}}
+                {{!-- ;return false --}}
+                <li class="makeSplash text-dark" data-id="{{todo.id}}" data-title="{{todo.title}}" data-user="{{todo.user_id}}">{{todo.title}}</li>
+            {{!-- </span> --}}
             {{/each}}
         </ol>
         <h5 class="pt-5"><u>SPLASHES:</u></h5>

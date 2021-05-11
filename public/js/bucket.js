@@ -14,25 +14,24 @@ const toggleFn = (title, user_id) => {
     document.getElementById('newDrop_form').style.display = 'none';
 };
 
-// const removeDropBtnFn = async (id) => {
-//     const response = await fetch(`/api/drops/${id}`, {
-//         method: 'DELETE',
-//         headers: { 'Content-Type': 'application/json' },
-//     });
-
-//     if (response.ok) {
-//         response.statusText;
-//     } else {
-//         alert(response.statusText);
-//     }
-// };
+const removeDropBtnFn = async (id) => {
+    console.log(id);
+    const response = await fetch(`/api/drops/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(id, 'dropRoutes');
+    if (response.ok) {
+        response.statusText;
+    } else {
+        alert(response.statusText);
+    }
+};
 
 const newSplashBtnFn = async (title, user_id) => {
-    // console.log('New splash in the works!');
-    // console.log(user_id);
 
     const content = document.getElementById('content').value;
-    // console.log(content);
+
     console.log(title, content, user_id);
     const response = await fetch('/api/splashes', {
         method: 'POST',
@@ -46,16 +45,16 @@ const newSplashBtnFn = async (title, user_id) => {
         alert(response.statusText);
     }
 };
-
-if (document.querySelector('.makeSplash')) {
-    document.querySelector('.makeSplash').addEventListener('click', toggleFn);
-    // document.querySelector('.makeSplash').addEventListener('click', removeDropBtnFn);
-}
+const li = document.querySelectorAll('.makeSplash');// if (document.querySelector('.makeSplash')) {
+document.querySelector('#dropList').addEventListener('click', (event) => {
+    // if (event.target.dataset.id) {
+    // }
+    console.log(event.target.dateset.title, event.target.dataset.user, event.target.dataset.id);
+});
+// document.querySelector('.makeSplash').addEventListener('click', (event) => {
+// });
+// }
 
 if (document.querySelector('.splash')) {
     document.querySelector('.splash').addEventListener('click', newSplashBtnFn);
 }
-
-
-
-// document.querySelector('.makeSplash').addEventListener('click', getNewSplashBtnFn);
