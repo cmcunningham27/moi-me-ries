@@ -42,6 +42,15 @@
                 
             </p>
             <textarea id="content"></textarea>
+
+            {{!-- Upload photo form start --}}
+            <form action="/splashes" method="POST">
+            <p>Upload Photo!</p>
+            <input type="file" accept="image/*" class="bg-dark text-light"/>
+            <input type="submit" class="bg-dark text-light">
+            </form>
+            {{!-- Upload photo form end --}}
+
             <button class="newSplash join ms-auto bg-dark text-light m-15">
                SPLASH
             </button>
