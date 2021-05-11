@@ -46,7 +46,14 @@
                SPLASH
             </button>
         </div>
-
+        {{!-- {{#limitSplashes user.dones 3}} --}}
+            {{!-- {{> short-splashes}} --}}
+        {{!-- {{/limitSplashes}} --}}
+        {{#each (limitSplashes user.dones 3) as |done|}}
+            {{!-- {{log done}} --}}
+            {{> short-splashes done=done}}
+            {{!-- {{@index}}: {{2}} --}}
+        {{/each}}
     </div>
 </div>
 <script src="/js/bucket.js"></script>

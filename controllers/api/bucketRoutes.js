@@ -9,7 +9,7 @@ const withAuth = require('../../utils/auth');
 //todo + done = bucketData
 router.get('/', withAuth, async (req, res) => {
     try {
-        console.log('get bucket', req.session);
+        // console.log('get bucket', req.session);
         // const bucketData = await ToDo.findAll({
         const bucketData = await ToDo.findAll({
             where: {
@@ -27,7 +27,7 @@ router.get('/', withAuth, async (req, res) => {
         res.status(200).json(bucketData);
         // res.render('bucket');
     } catch (err) {
-        console.log('bucket route', err);
+        // console.log('bucket route', err);
         res.status(500).json(err);
     }
 });
