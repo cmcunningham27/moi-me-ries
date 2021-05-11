@@ -7,7 +7,8 @@ const toggleFn = (title, user_id) => {
 
     document.getElementById('title').innerHTML = 'Tell us about your ' + title + ' SPLASH adventure:';
 
-    document.querySelector('.newSplash').setAttribute('onclick', 'newSplashBtnFn("' + title + '", "' + user_id + '")');
+    document.querySelector('.newSplash').setAttribute('data-title', title);
+    document.querySelector('.newSplash').setAttribute('data-user', user_id);
 
     document.getElementById('newSplash_form').style.display = 'flex';
 
@@ -45,15 +46,35 @@ const newSplashBtnFn = async (title, user_id) => {
         alert(response.statusText);
     }
 };
-const li = document.querySelectorAll('.makeSplash');// if (document.querySelector('.makeSplash')) {
+
+// const li = document.querySelectorAll('.makeSplash');// if (document.querySelector('.makeSplash')) {
 document.querySelector('#dropList').addEventListener('click', (event) => {
-    // if (event.target.dataset.id) {
-    // }
-    console.log(event.target.dateset.title, event.target.dataset.user, event.target.dataset.id);
+    event.preventDefault();
+
+    const title = event.target.dataset.title;
+    const id = event.target.dataset.id;
+    const user = event.target.dataset.user;
+
+    if(event.target.matches('.makeSplash')){
+        // console.log(title, user, id);
+        toggleFn(title, user);
+        removeDropBtnFn(id);
+    }
+
+});
+
+document.querySelector('.newSplash').addEventListener('click', (event) => {
+    event.preventDefault();
+    const title = event.target.dataset.title;
+    const user = event.target.dataset.user;
+    console.log(title, user);
+
+    newSplashBtnFn(title, user);
 });
 // document.querySelector('.makeSplash').addEventListener('click', (event) => {
 // });
 // }
+
 
 if (document.querySelector('.splash')) {
     document.querySelector('.splash').addEventListener('click', newSplashBtnFn);
