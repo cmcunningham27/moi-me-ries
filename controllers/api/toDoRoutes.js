@@ -5,7 +5,7 @@ const { ToDo } = require('../../models');
 
 //create new drop/todo. -not including a bucket id
 router.post('/', withAuth, async (req, res) => {
-    console.log('!!!!!!!!!!!!!!', req.session.user_id);
+    // console.log('!!!!!!!!!!!!!!', req.session.user_id);
     try {
         const toDoData = await ToDo.create({
             ...req.body,
@@ -84,7 +84,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
         res.status(200).json(toDoData);
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         res.status(500).json(err);
     }
 });

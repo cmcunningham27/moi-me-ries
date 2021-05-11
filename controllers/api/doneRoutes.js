@@ -58,7 +58,7 @@ router.post('/', withAuth, async (req, res) => {
         // res.status(200).json(noMoreToDo);
         res.status(200).json(doneData);
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         res.status(500).json(err);
     }
 });
