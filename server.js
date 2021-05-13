@@ -37,4 +37,4 @@ app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now listening on ${PORT}`, process.env.CLEARDB_DATABASE_URL));
-});
+}).catch((err) => console.log(err, process.env.CLEARDB_DATABASE_URL));
