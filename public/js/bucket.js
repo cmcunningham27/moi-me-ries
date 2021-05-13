@@ -47,8 +47,8 @@ const newSplashBtnFn = async (title, user_id) => {
     }
 };
 
-const addDrop =async()=>{
-    const title=document.querySelector('.dropItem').value;
+const addDrop = async () => {
+    const title = document.querySelector('.dropItem').value;
     const response = await fetch('/api/drops', {
         method: 'POST',
         body: JSON.stringify({ title }),
