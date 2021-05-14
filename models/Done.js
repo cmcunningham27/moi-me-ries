@@ -19,6 +19,9 @@ Done.init(
             type: DataTypes.STRING,
             defaultValue: 'null'
         },
+        image : {
+            type: DataTypes.BLOB,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
