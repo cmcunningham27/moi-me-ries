@@ -4,6 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const fileUpload = require('express-fileupload');
 require('dotenv').config();
 
 const sequelize = require('./config/connection');
@@ -28,6 +29,8 @@ app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+app.use(fileUpload());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

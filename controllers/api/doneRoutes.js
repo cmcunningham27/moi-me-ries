@@ -63,6 +63,17 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+router.post('/pics', async (req, res) => {
+    console.log('!!!pics route out of try!!!!', req.files.splashPic);
+    try {
+        console.log('!!!pics route inside try!!!', req.files.splashPic);
+        
+    } catch (err) {
+        res.status(500).json(err);
+        console.log(err);
+    }
+});
+
 //update splash/done
 router.put('/:id', withAuth, async (req, res) => {
     try {
