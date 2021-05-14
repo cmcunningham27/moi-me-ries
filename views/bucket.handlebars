@@ -29,7 +29,7 @@
         </ol>
         {{/if}}
     </div>
-    <div class="section bg-light p-3 vh-100">
+    <div id="mainWrap" class="section bg-light p-3 vh-100">
 
         <div id="newDrop_form" class="new flex-row m-10 p-3 h-15 rounded">
             <input type="text" class="dropItem form-control mt-10 me-3" placeholder="Add to your Bucket" aria-label="Add to your Bucket">
@@ -44,10 +44,11 @@
             <textarea id="content"></textarea>
 
             {{!-- Upload photo form start --}}
-            <form action="/splashes" method="POST">
+            <form action="api/splashes/pics" method="POST" encType="multipart/form-data">
+            {{!-- <form> --}}
             <p>Upload Photo!</p>
-            <input type="file" accept="image/*" class="bg-dark text-light"/>
-            <input type="submit" class="bg-dark text-light">
+            <input id="upLoadInput" type="file" name="splashPic" accept="image/*" class="bg-dark text-light"/>
+            <input id="upLoadSubBtn" type="submit" value='Upload!' class="bg-dark text-light">
             </form>
             {{!-- Upload photo form end --}}
 
@@ -55,13 +56,11 @@
                SPLASH
             </button>
         </div>
-        {{!-- {{#limitSplashes user.dones 3}} --}}
-            {{!-- {{> short-splashes}} --}}
-        {{!-- {{/limitSplashes}} --}}
+       
         {{#each (limitSplashes user.dones 3) as |done|}}
-            {{!-- {{log done}} --}}
+           
             {{> short-splashes done=done}}
-            {{!-- {{@index}}: {{2}} --}}
+        
         {{/each}}
     </div>
 </div>

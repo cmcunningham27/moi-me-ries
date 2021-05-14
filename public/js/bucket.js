@@ -60,6 +60,7 @@ const addDrop = async () => {
         alert(response.statusText);
     }
 };
+
 // const li = document.querySelectorAll('.makeSplash');// if (document.querySelector('.makeSplash')) {
 document.querySelector('#dropList').addEventListener('click', (event) => {
     event.preventDefault();
@@ -76,17 +77,35 @@ document.querySelector('#dropList').addEventListener('click', (event) => {
 
 });
 
-document.querySelector('.newSplash').addEventListener('click', (event) => {
-    event.preventDefault();
-    const title = event.target.dataset.title;
-    const user = event.target.dataset.user;
-    // console.log(title, user);
+/* start refactored the below code */
 
-    newSplashBtnFn(title, user);
+// document.querySelector('.newSplash').addEventListener('click', (event) => {
+//     event.preventDefault();
+//     const title = event.target.dataset.title;
+//     const user = event.target.dataset.user;
+//     // console.log(title, user);
+
+//     newSplashBtnFn(title, user);
+// });
+
+
+// end document.querySelector('.drop'). addEventListener('click', addDrop);
+
+/* refactored to have once event listener on this element */
+document.querySelector('#mainWrap').addEventListener('click', (event) => {
+    // event.preventDefault();
+    const target = event.target;
+    const title = target.dataset.title;
+    // const id = target.dataset.id;
+    const user = target.dataset.user;
+    if(target.matches('.newSplash')){
+        newSplashBtnFn(title, user);
+    } else if (target.matches('.drop')){
+        addDrop();
+    } else if(target.matches('#upLoadSubBtn')){
+        // upLoadPic();
+    }
 });
-
-
-document.querySelector('.drop'). addEventListener('click', addDrop);
 // document.querySelector('.makeSplash').addEventListener('click', (event) => {
 // });
 // }
