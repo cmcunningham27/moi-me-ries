@@ -1,5 +1,6 @@
 const { Done, ToDo } = require('../../models');
 const withAuth = require('../../utils/auth');
+const path = require('path');
 
 const router = require('express').Router();
 const fs = require('fs');
@@ -41,7 +42,7 @@ router.post('/', withAuth, async (req, res) => {
     console.log('!!!!!splashRoute!!!', req.body);
     // console.log('!!! splash route !!!', req.files.splashPic);
     try {
-        
+        // const photo = fs.readFileSync(path.resolve(__dirname, `./pre_db_photo/${req.body.image}`))
         const doneData = await Done.create({
             ...req.body,
             user_id: req.session.user_id,

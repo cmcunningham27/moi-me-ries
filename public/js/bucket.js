@@ -31,14 +31,24 @@ const removeDropBtnFn = async (id) => {
     }
 };
 
+const extractImageName = (image) => {
+    // console.log(image);
+    let image_name = '';
+    for (let i=12; i < image.length; i++) {
+        image_name += image[i];
+    }
+    return image_name;
+};
+// C:\fakepath\quill.png
 const newSplashBtnFn = async (title, user_id) => {
 
     const content = document.getElementById('content').value;
-
-    console.log('!!!! new splash fn!!!!', title, content, user_id);
+    const imageFile = await document.getElementById('upLoadInput').value;
+    const image = extractImageName(imageFile);
+    console.log('!!!! new splash fn!!!!', title, content, image, user_id);
     const response = await fetch('/api/splashes', {
         method: 'POST',
-        body: JSON.stringify({ title, content, user_id }),
+        body: JSON.stringify({ title, content, image, user_id }),
         headers: { 'Content-Type': 'application/json' },
     });
 
