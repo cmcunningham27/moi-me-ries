@@ -7,8 +7,10 @@ const toggleFn = (title, user_id) => {
 
     document.getElementById('title').innerHTML = 'Tell us about your ' + title + ' SPLASH adventure:';
 
+    // document.querySelector('.upLoadSubBtn').setAttribute('data-title', title);
+    // document.querySelector('.upLoadSubBtn').setAttribute('data-user_id', user_id);
     document.querySelector('.newSplash').setAttribute('data-title', title);
-    document.querySelector('.newSplash').setAttribute('data-user', user_id);
+    document.querySelector('.newSplash').setAttribute('data-user_id', user_id);
 
     document.getElementById('newSplash_form').style.display = 'flex';
 
@@ -33,7 +35,7 @@ const newSplashBtnFn = async (title, user_id) => {
 
     const content = document.getElementById('content').value;
 
-    console.log(title, content, user_id);
+    console.log('!!!! new splash fn!!!!', title, content, user_id);
     const response = await fetch('/api/splashes', {
         method: 'POST',
         body: JSON.stringify({ title, content, user_id }),
@@ -43,6 +45,7 @@ const newSplashBtnFn = async (title, user_id) => {
     if (response.ok) {
         document.location.replace('/bucket');
     } else {
+        console.log(response);
         alert(response.statusText);
     }
 };
@@ -67,11 +70,11 @@ document.querySelector('#dropList').addEventListener('click', (event) => {
 
     const title = event.target.dataset.title;
     const id = event.target.dataset.id;
-    const user = event.target.dataset.user;
+    const user_id = event.target.dataset.user_id;
 
     if(event.target.matches('.makeSplash')){
         // console.log(title, user, id);
-        toggleFn(title, user);
+        toggleFn(title, user_id);
         removeDropBtnFn(id);
     }
 
@@ -91,19 +94,19 @@ document.querySelector('#dropList').addEventListener('click', (event) => {
 
 // end document.querySelector('.drop'). addEventListener('click', addDrop);
 
-/* refactored to have once event listener on this element */
+/* refactored to have one event listener on this element */
 document.querySelector('#mainWrap').addEventListener('click', (event) => {
     // event.preventDefault();
+
     const target = event.target;
+    console.log(target);
     const title = target.dataset.title;
     // const id = target.dataset.id;
-    const user = target.dataset.user;
+    const user_id = target.dataset.user_id;
     if(target.matches('.newSplash')){
-        newSplashBtnFn(title, user);
+        newSplashBtnFn(title, user_id);
     } else if (target.matches('.drop')){
         addDrop();
-    } else if(target.matches('#upLoadSubBtn')){
-        // upLoadPic();
     }
 });
 // document.querySelector('.makeSplash').addEventListener('click', (event) => {

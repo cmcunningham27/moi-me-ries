@@ -15,7 +15,7 @@
             {{!-- <a href=""  --}}
             {{!-- <span class="makeSplash text-dark" data-id="{{todo.id}}" onclick="removeDropBtnFn({{todo.id}}); toggleFn('{{todo.title}}', {{todo.user_id}})">  --}}
                 {{!-- ;return false --}}
-                <li class="makeSplash text-dark" data-id="{{todo.id}}" data-title="{{todo.title}}" data-user="{{todo.user_id}}">{{todo.title}}</li>
+                <li class="makeSplash text-dark" data-id="{{todo.id}}" data-title="{{todo.title}}" data-user_id="{{todo.user_id}}">{{todo.title}}</li>
             {{!-- </span> --}}
             {{/each}}
         </ol>
@@ -48,8 +48,9 @@
             {{!-- <form> --}}
             <p>Upload Photo!</p>
             <input id="upLoadInput" type="file" name="splashPic" accept="image/*" class="bg-dark text-light"/>
-            <input id="upLoadSubBtn" type="submit" value='Upload!' class="bg-dark text-light">
+            <input id="upLoadSubBtn" type="submit" value='Upload!' class="upLoadSubBtn bg-dark text-light">
             </form>
+            {{!-- can we attach this functionality of upLoadBubBTn to the splash button or vise versa --}}
             {{!-- Upload photo form end --}}
 
             <button class="newSplash join ms-auto bg-dark text-light m-15">
