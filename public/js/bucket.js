@@ -134,7 +134,7 @@ document.querySelector('#mainWrap').addEventListener('click', (event) => {
 });
 
 const bigSplash= async (event)=>{
-    console.log (event.target)
+    console.log (event.target);
     const response=await fetch(`/api/splashes/${event.target.dataset.id}`, {
         headers:{'Content-Type':'application/json'}
     });
