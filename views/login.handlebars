@@ -4,15 +4,6 @@
 
 <div class="container">
     <div class="home col-8 d-flex flex-column justify-content-evenly align-items-center bg-light p-2">
-        {{!-- <img class="quill" src="images/quill.png" alt="Icon made by Freepik at flaticon.com">
-        <h3 class="col-7 m-2 p-3">
-            "Are you interested in connecting with others around the world on a DEEPER LEVEL? Join the many users who have already begun and continue to grow their MOI-ME-RIES!""
-        </h3>
-        <a href="/login">
-            <button class="join bg-dark text-light m-15">
-                <h3>JOIN/LOGIN</h3>
-            </button>
-        </a> --}}
 
         <h2 id="form_title">Login</h2>
 
@@ -26,76 +17,23 @@
         <div id="login_form_div">
             <br>
             <button id="login" >Login</button>
-            <p><a href="#" onclick="toggle_form('signup'); return false;">
+            <br><br>
+            <p class="loginLink text-primary">
                 Create Your Account
-            </a></p>
+            </p>
         </div>
 
-        <div id="signup_form_div" style="display:none">
+        <div id="signup_form_div">
             <p>Name</p>
             <input id="name" type="text" name="name" placeholder="Your Name Here">
             <br>
-            <button id="signup" >Sign Up</button>
-            <p><a href="#" onclick="toggle_form('login'); return false;">
+            <button id="signup" class="">Sign Up</button>
+            <br><br>
+            <p class="signupLink text-primary">
                 Enter Your Login
-            </a></p>
+            </p>
         </div>
     </div>
 </div>
 
-
-{{!-- <h2 id="form_title">Login</h2>
-
-
-<p>Enter Your Email</p>
-<input id="email" type="text" name="email" placeholder="Email">
-<br>
-<p>Enter Your Password</p>
-<input id="password" type="text" name="password" placeholder="Password">
-
-<div id="login_form_div">
-    <br>
-    <button id="login" >Login</button>
-    <p><a href="#" onclick="toggle_form('signup'); return false;">
-    Create Your Account
-    </a></p>
-</div>
-
-<div id="signup_form_div" style="display:none">
-    <p>Name</p>
-    <input id="name" type="text" name="name" placeholder="Your Name Here">
-    <br>
-    <button id="signup" >Sign Up</button>
-    <p><a href="#" onclick="toggle_form('login'); return false;">
-    Enter Your Login</a></p>
-</div> --}}
-
-<script>
-
-function toggle_form(f) {
-
-    if (f == "signup") {
-
-        document.getElementById("form_title").innerHTML = "New User Sign Up";
-
-        document.getElementById("login_form_div").style.display = "none";
-       
-        document.getElementById("signup_form_div").style.display = "block";
-
-    } 
-    else  {
-
-        document.getElementById("form_title").innerHTML = "Login";
-
-        document.getElementById("login_form_div").style.display = "block";
-      
-        document.getElementById("signup_form_div").style.display = "none";
-
-    }
-
-
-}
-
-
-</script>
 <script src="/js/logIn.js"></script>

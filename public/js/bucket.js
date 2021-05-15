@@ -45,14 +45,14 @@ const removeDropBtnFn = async (id) => {
 };
 
 const extractImageName = (image) => {
-    // console.log(image);
+
     let image_name = '';
     for (let i=12; i < image.length; i++) {
         image_name += image[i];
     }
     return image_name;
 };
-// C:\fakepath\quill.png
+
 const newSplashBtnFn = async (title, user_id) => {
 
     const content = document.getElementById('content').value;

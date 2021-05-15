@@ -53,11 +53,13 @@ router.get('/bucket', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
+
             include: [{ model: ToDo, attributes: ['title', 'id', 'user_id'] }, { model: Done, attributes: ['title', 'content','id','image'] }],
+
+            
         });
 
         const user = userData.get({ plain: true });
-
         // console.log(user);
 
         res.render('bucket', {
