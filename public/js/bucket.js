@@ -111,16 +111,11 @@ document.querySelector('#dropList').addEventListener('click', (event) => {
 //     const user = event.target.dataset.user;
 //     // console.log(title, user);
 
-<<<<<<< HEAD
-document.querySelector('.splashTitle').addEventListener('click', splashToggleFn);
-
-=======
 //     newSplashBtnFn(title, user);
 // });
 
 
 // end document.querySelector('.drop'). addEventListener('click', addDrop);
->>>>>>> main
 
 /* refactored to have one event listener on this element */
 document.querySelector('#mainWrap').addEventListener('click', (event) => {
@@ -137,8 +132,32 @@ document.querySelector('#mainWrap').addEventListener('click', (event) => {
         addDrop();
     }
 });
-// document.querySelector('.makeSplash').addEventListener('click', (event) => {
-// });
+
+const bigSplash= async (event)=>{
+    console.log (event.target)
+    const response=await fetch(`/api/splashes/${event.target.dataset.id}`, {
+        headers:{'Content-Type':'application/json'}
+    });
+    console.log(response,'response');
+    if (response.ok){
+        // document.location.replace('/bucket');
+    } else{
+        alert(response.statusText);
+    }
+
+};
+
+document.querySelector('#splashTitleList').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (event.target.matches('.splashTitle')){
+        const shortSplashes=document.querySelectorAll('.shortSplash');
+        shortSplashes.forEach((splash)=>{
+            splash.setAttribute('style','display:none');
+        });
+        bigSplash(event);
+    }
+
+});
 // }
 
 
