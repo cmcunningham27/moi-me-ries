@@ -1,5 +1,11 @@
 document.getElementById('newSplash_form').style.display = 'none';
 document.getElementById('newDrop_form').style.display = 'flex';
+const shortSplash= document.querySelectorAll('.shortSplash');
+document.getElementById('bigSplash').style.display = 'none';
+
+shortSplash.forEach((splash)=>{
+    splash.style.display='flex';
+});
 
 const toggleFn = (title, user_id) => {
     // console.log('HEY YOU GUYS!');
@@ -15,6 +21,13 @@ const toggleFn = (title, user_id) => {
     document.getElementById('newSplash_form').style.display = 'flex';
 
     document.getElementById('newDrop_form').style.display = 'none';
+};
+
+const splashToggleFn = () =>{
+    shortSplash.forEach((splash)=>{
+        splash.style.display='none';
+    });
+    document.getElementById('bigSplash').style.display = 'flex';
 };
 
 const removeDropBtnFn = async (id) => {
@@ -119,8 +132,32 @@ document.querySelector('#mainWrap').addEventListener('click', (event) => {
         addDrop();
     }
 });
-// document.querySelector('.makeSplash').addEventListener('click', (event) => {
-// });
+
+const bigSplash= async (event)=>{
+    console.log (event.target);
+    const response=await fetch(`/api/splashes/${event.target.dataset.id}`, {
+        headers:{'Content-Type':'application/json'}
+    });
+    console.log(response,'response');
+    if (response.ok){
+        // document.location.replace('/bucket');
+    } else{
+        alert(response.statusText);
+    }
+
+};
+
+document.querySelector('#splashTitleList').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (event.target.matches('.splashTitle')){
+        const shortSplashes=document.querySelectorAll('.shortSplash');
+        shortSplashes.forEach((splash)=>{
+            splash.setAttribute('style','display:none');
+        });
+        bigSplash(event);
+    }
+
+});
 // }
 
 
