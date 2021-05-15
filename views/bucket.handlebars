@@ -23,7 +23,7 @@
         <ol>
             {{#each user.dones as |done|}}
             <a href="">
-                <li style="text-decoration:line-through">{{done.title}}</li>
+                <li class="splashTitle" data-title="{{done.title}}" data-content="{{done.content}}"  style="text-decoration:line-through">{{done.title}}</li>
             </a>
             {{/each}}
         </ol>
@@ -54,6 +54,8 @@
             <button class="newSplash join ms-auto bg-dark text-light m-15">
                SPLASH
             </button>
+           
+           {{>big-splash done=done}}
         </div>
         {{!-- {{#limitSplashes user.dones 3}} --}}
             {{!-- {{> short-splashes}} --}}

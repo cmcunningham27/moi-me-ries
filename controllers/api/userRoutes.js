@@ -81,13 +81,13 @@ router.post('/login', async (req, res) => {
         });
 
         if(!userData){
-            res.status(400).json({ message: 'login failed: email or password incorrect.'});
+            return res.status(400).json({ message: 'login failed: email or password incorrect.'});
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
 
         if(!validPassword){
-            res.status(400).json({ message: 'login failed: email or password incorrect.'});
+            return res.status(400).json({ message: 'login failed: email or password incorrect.'});
 
         }
 
@@ -97,7 +97,7 @@ router.post('/login', async (req, res) => {
 
             // res.status(200).json({ message: 'log in successful'});
             //redirect to profile when profile exists?
-            res.redirect('/bucket');
+            return res.redirect('/bucket');
         });
 
     } catch (err) {

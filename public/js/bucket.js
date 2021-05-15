@@ -1,5 +1,11 @@
 document.getElementById('newSplash_form').style.display = 'none';
 document.getElementById('newDrop_form').style.display = 'flex';
+const shortSplash= document.querySelectorAll('.shortSplash');
+document.getElementById('bigSplash').style.display = 'none';
+
+shortSplash.forEach((splash)=>{
+    splash.style.display='flex';
+});
 
 const toggleFn = (title, user_id) => {
     // console.log('HEY YOU GUYS!');
@@ -13,6 +19,13 @@ const toggleFn = (title, user_id) => {
     document.getElementById('newSplash_form').style.display = 'flex';
 
     document.getElementById('newDrop_form').style.display = 'none';
+};
+
+const splashToggleFn = () =>{
+    shortSplash.forEach((splash)=>{
+        splash.style.display='none';
+    });
+    document.getElementById('bigSplash').style.display = 'flex';
 };
 
 const removeDropBtnFn = async (id) => {
@@ -69,7 +82,7 @@ document.querySelector('#dropList').addEventListener('click', (event) => {
     const user = event.target.dataset.user;
 
     if(event.target.matches('.makeSplash')){
-        // console.log(title, user, id);
+        console.log(title, user, id);
         toggleFn(title, user);
         removeDropBtnFn(id);
     }
@@ -84,6 +97,8 @@ document.querySelector('.newSplash').addEventListener('click', (event) => {
 
     newSplashBtnFn(title, user);
 });
+
+document.querySelector('.splashTitle').addEventListener('click', splashToggleFn);
 
 
 document.querySelector('.drop'). addEventListener('click', addDrop);

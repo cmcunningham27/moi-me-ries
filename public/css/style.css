@@ -68,7 +68,8 @@ main {
 form {
     margin-top: 15px;
 
-.shortSplash{
+}
+    .shortSplash{
     background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%))
 }
 
