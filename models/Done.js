@@ -20,7 +20,7 @@ Done.init(
             defaultValue: 'null'
         },
         image : {
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING,
         },
         user_id: {
             type: DataTypes.INTEGER,

@@ -41,15 +41,16 @@ router.get('/:id', withAuth, async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
     console.log('!!!!!splashRoute!!!', req.body);
     // console.log('!!! splash route !!!', req.files.splashPic);
+    // const imageName = fs.readFileSync(__dirname + `/pre_db_photo/${ req.body.image }`);
+    // console.log('return from read file', image);
     try {
         // const photo = fs.readFileSync(path.resolve(__dirname, `./pre_db_photo/${req.body.image}`))
         const doneData = await Done.create({
             ...req.body,
+            image: req.body.image,
             user_id: req.session.user_id,
             // image: req.files.splashPic
         });
-
-
         // const noMoreToDo = await ToDo.destroy({
         //     where: {
         //         title: req.body.title
