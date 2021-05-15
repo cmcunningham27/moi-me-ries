@@ -1,5 +1,5 @@
-console.log('helllo');
-console.log(document.querySelector('#login'));
+document.getElementById('signup_form_div').style.display = 'none';
+document.getElementById('login_form_div').style.display = 'block';
 
 const loginBtnFn = async (event) => {
     event.preventDefault();
@@ -48,9 +48,22 @@ const signupBtnFn = async (event) => {
     }
 };
 
+const toggleFn = (f) => {
+    if (f === 'signup') {
+        document.getElementById('form_title').innerHTML = 'New User Sign Up';
+        document.getElementById('login_form_div').style.display = 'none';
+        document.getElementById('signup_form_div').style.display = 'block';
+    } else {
+        document.getElementById('form_title').innerHTML = 'Login';
+        document.getElementById('login_form_div').style.display = 'block';
+        document.getElementById('signup_form_div').style.display = 'none';
+    }
+};
+
 document.querySelector('#login').addEventListener('click', loginBtnFn);
 document.querySelector('#signup').addEventListener('click', signupBtnFn);
-
+document.querySelector('.signupLink').addEventListener('click', () => toggleFn('login'));
+document.querySelector('.loginLink').addEventListener('click', () => toggleFn('signup'));
 
 
 
