@@ -82,7 +82,7 @@ router.post('/pics', async (req, res) => {
 
         const splashPic = req.files.splashPic;
         //prob not best place for folder but only one that worked
-        const uploadPath = __dirname + '/pre_db_photo/' + splashPic.name;
+        const uploadPath = __dirname + '/../../public/images/pre_db/' + splashPic.name;
 
         splashPic.mv(uploadPath, (err) => {
             if(err) return res.status(500).json(err);
