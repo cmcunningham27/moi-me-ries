@@ -103,21 +103,24 @@ document.querySelector('#dropList').addEventListener('click', (event) => {
 
 });
 
-/* start refactored the below code */
+const bigSplash= async (event)=>{
+    console.log (event.target);
+    const target = event.target;
+    const dataset = target.dataset;
 
-// document.querySelector('.newSplash').addEventListener('click', (event) => {
-//     event.preventDefault();
-//     const title = event.target.dataset.title;
-//     const user = event.target.dataset.user;
-//     // console.log(title, user);
+    const shortSplashes=document.querySelectorAll('.shortSplash');
 
-//     newSplashBtnFn(title, user);
-// });
+    shortSplashes.forEach((splash)=>{
+        splash.setAttribute('style','display:none');
+    });
 
+    document.querySelector('#bigSplashTitle').innerHTML = dataset.title;
+    document.querySelector('#bigSplashText').innerHTML = dataset.content;
+    document.querySelector('#bigSplashImage').setAttribute('src', `/images/pre_db/${dataset.image}`);
+    document.querySelector('#bigSplash').style = 'display:flex';
+    console.log(document.querySelector('#bigSplash'), '!!!!!!LINE 150');
+};
 
-// end document.querySelector('.drop'). addEventListener('click', addDrop);
-
-/* refactored to have one event listener on this element */
 document.querySelector('#mainWrap').addEventListener('click', (event) => {
     // event.preventDefault();
 
@@ -130,33 +133,16 @@ document.querySelector('#mainWrap').addEventListener('click', (event) => {
         newSplashBtnFn(title, user_id);
     } else if (target.matches('.drop')){
         addDrop();
+    } else if(target.matches('.shortSplash')){
+        bigSplash(event);
     }
 });
-
-const bigSplash= async (event)=>{
-    console.log (event.target);
-    const response=await fetch(`/api/splashes/${event.target.dataset.id}`, {
-        headers:{'Content-Type':'application/json'}
-    });
-    console.log(response,'response');
-    if (response.ok){
-        // document.location.replace('/bucket');
-    } else{
-        alert(response.statusText);
-    }
-
-};
 
 document.querySelector('#splashTitleList').addEventListener('click', (event) => {
     event.preventDefault();
     if (event.target.matches('.splashTitle')){
-        const shortSplashes=document.querySelectorAll('.shortSplash');
-        shortSplashes.forEach((splash)=>{
-            splash.setAttribute('style','display:none');
-        });
         bigSplash(event);
     }
-
 });
 // }
 

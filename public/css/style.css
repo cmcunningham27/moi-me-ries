@@ -69,8 +69,13 @@ form {
     margin-top: 15px;
 }
 
+#bigSplash {
+    display: none;
+}
+
 .shortSplash{
-    background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%))
+    background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
+    cursor: pointer;
 }
 
 .imgPlaceHolder{
