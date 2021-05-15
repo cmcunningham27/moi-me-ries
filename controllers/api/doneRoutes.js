@@ -1,7 +1,9 @@
 const { Done, ToDo } = require('../../models');
 const withAuth = require('../../utils/auth');
+const path = require('path');
 
 const router = require('express').Router();
+const fs = require('fs');
 
 
 //get all splash/done probably need more specificity to make sure it is attatched to user and bucket
@@ -37,13 +39,16 @@ router.get('/:id', withAuth, async (req, res) => {
 
 //create splash/todo
 router.post('/', withAuth, async (req, res) => {
-    console.log(req.body);
+    console.log('!!!!!splashRoute!!!', req.body);
+    // console.log('!!! splash route !!!', req.files.splashPic);
     try {
-        
+        // const photo = fs.readFileSync(path.resolve(__dirname, `./pre_db_photo/${req.body.image}`))
         const doneData = await Done.create({
             ...req.body,
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            // image: req.files.splashPic
         });
+
 
         // const noMoreToDo = await ToDo.destroy({
         //     where: {
@@ -58,8 +63,32 @@ router.post('/', withAuth, async (req, res) => {
         // res.status(200).json(noMoreToDo);
         res.status(200).json(doneData);
     } catch (err) {
-        // console.log(err);
+        console.log(err);
         res.status(500).json(err);
+    }
+});
+
+//upload/stage photo for db
+//note built in fn for the html form wants to 'get' this end point
+router.post('/pics', async (req, res) => {
+    console.log('!!!pics route out of try!!!!', req.files.splashPic);
+    try {
+        console.log('!!!pics route inside try!!!', req.files.splashPic);
+
+        if(!req.files){
+            res.status(400).json({ message: 'there was a problem with your photo'})
+        }
+
+        const splashPic = req.files.splashPic;
+        //prob not best place for folder but only one that worked
+        const uploadPath = __dirname + '/pre_db_photo/' + splashPic.name;
+
+        splashPic.mv(uploadPath, (err) => {
+            if(err) return res.status(500).json(err);
+        });   
+    } catch (err) {
+        res.status(500).json(err);
+        console.log(err);
     }
 });
 
