@@ -5,7 +5,7 @@
     <a id="logout" class="logout text-dark ms-auto" href="#">LOGOUT</a>
 </div>
 <div class="d-flex flex-row">
-    <div class="aside bg-light p-4 vh-100">
+    <div class="aside bg-light p-4">
         {{#if logged_in}}
         <h5><u>DROPS:</u></h5>
         <ol id="dropList">
@@ -25,13 +25,13 @@
             {{#each user.dones as |done|}}
            
             <a href="">
-                <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}"  style="text-decoration:line-through">{{done.title}}</li>
+                <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}" data-image="{{done.image}}"  style="text-decoration:line-through">{{done.title}}</li>
             </a>
             {{/each}}
         </ol>
         {{/if}}
     </div>
-    <div id="mainWrap" class="section bg-light p-3 vh-100">
+    <div id="mainWrap" class="section bg-light p-3">
 
         <div id="newDrop_form" class="new flex-row m-10 p-3 h-15 rounded">
             <input type="text" class="dropItem form-control mt-10 me-3" placeholder="Add to your Bucket" aria-label="Add to your Bucket">
@@ -52,24 +52,24 @@
             <input id="upLoadInput" type="file" name="splashPic" accept="image/*" class="bg-dark text-light"/>
             <input id="upLoadSubBtn" type="submit" value='Upload!' class="upLoadSubBtn bg-dark text-light">
             </form>
-            {{!-- can we attach this functionality of upLoadBubBTn to the splash button or vise versa --}}
-            {{!-- Upload photo form end --}}
 
             <button class="newSplash join ms-auto bg-dark text-light m-15">
                SPLASH
             </button>
            
-           {{>big-splash done=done}}
         </div>
        
-       <div id='bigSplash'>
-           <h2>{{user.dones.[0].title}}</h2>
-           <div id="bigSplashMain">
-               <img src="/images/pre_db/{{user.dones.image}}" alt="">
-               <h3>Description</h3>
-               <p>{{user.dones.content}}</p>
-           </div>
-       </div>
+        <div id='bigSplash'class="container mt-4 border">
+            <div class="d-flex flex-row m-3">
+                <img id="bigSplashImage" class="" src="" alt="">
+                <section id="bigSplashMain" class="d-flex flex-column p-3">
+                    <h2 id="bigSplashTitle">test</h2>
+                    <br>
+                    <h4><u>Description</u></h4>
+                    <p id="bigSplashText"></p>
+               </section>
+            </div>
+        </div>
 
 
         {{#each (limitSplashes user.dones 3) as |done|}}
