@@ -25,7 +25,7 @@
             {{#each user.dones as |done|}}
            
             <a href="">
-                <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}"  style="text-decoration:line-through">{{done.title}}</li>
+                <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}" data-image="{{done.image}}"  style="text-decoration:line-through">{{done.title}}</li>
             </a>
             {{/each}}
         </ol>
@@ -52,22 +52,19 @@
             <input id="upLoadInput" type="file" name="splashPic" accept="image/*" class="bg-dark text-light"/>
             <input id="upLoadSubBtn" type="submit" value='Upload!' class="upLoadSubBtn bg-dark text-light">
             </form>
-            {{!-- can we attach this functionality of upLoadBubBTn to the splash button or vise versa --}}
-            {{!-- Upload photo form end --}}
 
             <button class="newSplash join ms-auto bg-dark text-light m-15">
                SPLASH
             </button>
            
-           {{>big-splash done=done}}
         </div>
        
        <div id='bigSplash'>
-           <h2>{{user.dones.[0].title}}</h2>
+           <h2 id="bigSplashTitle">test</h2>
            <div id="bigSplashMain">
-               <img src="/images/pre_db/{{user.dones.image}}" alt="">
+               <img id="bigSplashImage" src="" alt="">
                <h3>Description</h3>
-               <p>{{user.dones.content}}</p>
+               <p id="bigSplashText"></p>
            </div>
        </div>
 
