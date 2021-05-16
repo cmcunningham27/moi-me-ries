@@ -90,9 +90,12 @@ img {
     height: 200px;
     width: 200px;
 }
+
+#bigSplash {
+    background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
+}
   
-/* img:hover {
+#bigSplashImage:hover {
     box-shadow: rgba(248, 11, 11, 100%);
-    width: 600px;
-    height: 500px;
-} */
+    transform: scale(3);
+}

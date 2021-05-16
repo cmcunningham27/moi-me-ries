@@ -16,7 +16,7 @@ Done.init(
             allowNull: false,
         },
         content: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(5000),
             defaultValue: 'null'
         },
         image : {
