@@ -74,3 +74,9 @@ Project is created with:
 * Another part of the interactivity would be writing 'letters' to other users. They would be private and mocked up to look like pen and paper letters. The goal is to encourage the user to treat it as a substantive way to keep in touch with others. 
 * Rework the photo storage system to make it it scalable. More than likely a third party storage service.
 
+## Photo Credit
+[Photo](https://www.pexels.com/photo/woman-wearing-black-and-white-blouse-and-white-short-standing-on-forest-2106776/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
+by
+[Artem Beliaikin](https://www.pexels.com/@belart84?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
+from
+[pexels.com](https://www.pexels.com/)
