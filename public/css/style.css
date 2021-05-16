@@ -22,11 +22,19 @@ h1 {
 }
 
 main {
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0%), rgba(0, 0, 0, 75%));
+    /* background-image: linear-gradient(45deg, rgba(0, 0, 0, 0%), rgba(0, 0, 0, 75%)); */
+    width: 100%;
+    background-image: url('../images/pexels-artem-beliaikin-2106776.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .nav {
     box-shadow: 0 1px 6px 0 black;
+}
+
+.text {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .aside {
@@ -42,13 +50,12 @@ main {
 }
 
 .home {
-    margin: 60px;
+    margin: 10px;
     box-shadow: 1px 7px 6px 0 black;
 }
 
 .join {
     height: 40px;
-    margin: 15px;
 }
 
 .quill {
@@ -99,3 +106,7 @@ img {
     box-shadow: rgba(248, 11, 11, 100%);
     transform: scale(3);
 }
+
+/* #homepageMain {
+    margin: 5px;
+} */
