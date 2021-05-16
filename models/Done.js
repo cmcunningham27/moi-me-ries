@@ -29,13 +29,6 @@ Done.init(
                 key: 'id'
             },
         },
-        // todo_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'todo',
-        //         key: 'id'
-        //     },
-        // },
     },
     {
         sequelize,
