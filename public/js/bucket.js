@@ -1,28 +1,24 @@
 document.getElementById('newSplash_form').style.display = 'none';
 document.getElementById('newDrop_form').style.display = 'flex';
-const shortSplash= document.querySelectorAll('.shortSplash');
 document.getElementById('bigSplash').style.display = 'none';
 
+const shortSplash= document.querySelectorAll('.shortSplash');
 shortSplash.forEach((splash)=>{
     splash.style.display='flex';
 });
 
+//toggles between the add drop input bar and the add a splash (with photo and description) menu
 const toggleFn = (title, user_id) => {
-    // console.log('HEY YOU GUYS!');
-    // console.log(user_id);
-
     document.getElementById('title').innerHTML = 'Tell us about your ' + title + ' SPLASH adventure:';
 
-    // document.querySelector('.upLoadSubBtn').setAttribute('data-title', title);
-    // document.querySelector('.upLoadSubBtn').setAttribute('data-user_id', user_id);
     document.querySelector('.newSplash').setAttribute('data-title', title);
     document.querySelector('.newSplash').setAttribute('data-user_id', user_id);
 
     document.getElementById('newSplash_form').style.display = 'flex';
-
     document.getElementById('newDrop_form').style.display = 'none';
 };
 
+//makes the short form splashes go away
 const splashToggleFn = () =>{
     shortSplash.forEach((splash)=>{
         splash.style.display='none';
@@ -30,13 +26,14 @@ const splashToggleFn = () =>{
     document.getElementById('bigSplash').style.display = 'flex';
 };
 
+//deletes the drop from database
 const removeDropBtnFn = async (id) => {
-    console.log(id);
     const response = await fetch(`/api/drops/${id}`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json'
+        },
     });
-    console.log(id, 'dropRoutes');
     if (response.ok) {
         response.statusText;
     } else {
@@ -44,41 +41,47 @@ const removeDropBtnFn = async (id) => {
     }
 };
 
-const extractImageName = (image) => {
 
+const extractImageName = (image) => {
     let image_name = '';
+
     for (let i=12; i < image.length; i++) {
         image_name += image[i];
     }
+
     return image_name;
 };
 
+//takes data form the create splash menu and the drop that was clicked on and makes new splash
 const newSplashBtnFn = async (title, user_id) => {
 
     const content = document.getElementById('content').value;
     const imageFile = await document.getElementById('upLoadInput').value;
     const image = extractImageName(imageFile);
-    console.log('!!!! new splash fn!!!!', title, content, image, user_id);
     const response = await fetch('/api/splashes', {
         method: 'POST',
         body: JSON.stringify({ title, content, image, user_id }),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json'
+        },
     });
 
     if (response.ok) {
         document.location.replace('/bucket');
     } else {
-        console.log(response);
         alert(response.statusText);
     }
 };
 
+//adds a drop to db
 const addDrop = async () => {
     const title = document.querySelector('.dropItem').value;
     const response = await fetch('/api/drops', {
         method: 'POST',
         body: JSON.stringify({ title }),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json'
+        },
     });
     if (response.ok) {
         document.location.replace('/bucket');
@@ -87,7 +90,7 @@ const addDrop = async () => {
     }
 };
 
-// const li = document.querySelectorAll('.makeSplash');// if (document.querySelector('.makeSplash')) {
+//delegating event listener on the left hand column
 document.querySelector('#dropList').addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -96,21 +99,20 @@ document.querySelector('#dropList').addEventListener('click', (event) => {
     const user_id = event.target.dataset.user_id;
 
     if(event.target.matches('.makeSplash')){
-        // console.log(title, user, id);
         toggleFn(title, user_id);
         removeDropBtnFn(id);
     }
 
 });
 
-const bigSplash= async (event)=>{
-    console.log (event.target);
+//hides short form splashes then sets the info in the large form splash then switches large form splash display on
+const bigSplash = async (event) => {
     const target = event.target;
     const dataset = target.dataset;
 
     const shortSplashes=document.querySelectorAll('.shortSplash');
 
-    shortSplashes.forEach((splash)=>{
+    shortSplashes.forEach((splash) => {
         splash.setAttribute('style','display:none');
     });
 
@@ -118,16 +120,13 @@ const bigSplash= async (event)=>{
     document.querySelector('#bigSplashText').innerHTML = dataset.content;
     document.querySelector('#bigSplashImage').setAttribute('src', `/images/pre_db/${dataset.image}`);
     document.querySelector('#bigSplash').style = 'display:flex';
-    console.log(document.querySelector('#bigSplash'), '!!!!!!LINE 150');
 };
 
+//delegates event listener across main section  (right hand column)
 document.querySelector('#mainWrap').addEventListener('click', (event) => {
-    // event.preventDefault();
 
     const target = event.target;
-    console.log(target);
     const title = target.dataset.title;
-    // const id = target.dataset.id;
     const user_id = target.dataset.user_id;
     if(target.matches('.newSplash')){
         newSplashBtnFn(title, user_id);
@@ -138,16 +137,10 @@ document.querySelector('#mainWrap').addEventListener('click', (event) => {
     }
 });
 
+//delegates event listener across the list of splash titles
 document.querySelector('#splashTitleList').addEventListener('click', (event) => {
     event.preventDefault();
     if (event.target.matches('.splashTitle')){
         bigSplash(event);
     }
 });
-// }
-
-
-// if (document.querySelector('.splash')) {
-//     document.querySelector('.splash').addEventListener('click', newSplashBtnFn);
-// }
-

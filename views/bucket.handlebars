@@ -1,7 +1,5 @@
 <div class="nav d-flex flex-row bg-light p-2 ps-3 pe-3">
-    {{!-- add href later --}}
     <a class="bucket p-1 rounded text-dark" href="#">BUCKET</a>
-    {{!-- add href later --}}
     <a id="logout" class="logout text-dark ms-auto" href="#">LOGOUT</a>
 </div>
 <div class="d-flex flex-row">
@@ -10,13 +8,7 @@
         <h5><u>DROPS:</u></h5>
         <ol id="dropList">
             {{#each user.todos as |todo|}}
-            {{!-- {{log 'todo' todo}} --}}
-            {{!--  --}}
-            {{!-- <a href=""  --}}
-            {{!-- <span class="makeSplash text-dark" data-id="{{todo.id}}" onclick="removeDropBtnFn({{todo.id}}); toggleFn('{{todo.title}}', {{todo.user_id}})">  --}}
-                {{!-- ;return false --}}
                 <li class="makeSplash text-dark" data-id="{{todo.id}}" data-title="{{todo.title}}" data-user_id="{{todo.user_id}}">{{todo.title}}</li>
-            {{!-- </span> --}}
             {{/each}}
         </ol>
          {{log user.dones.[0] 'user'}}
@@ -45,9 +37,8 @@
             </p>
             <textarea id="content"></textarea>
 
-            {{!-- Upload photo form start --}}
             <form action="api/splashes/pics" method="POST" encType="multipart/form-data">
-            {{!-- <form> --}}
+            
             <p>Upload Photo!</p>
             <input id="upLoadInput" type="file" name="splashPic" accept="image/*" class="bg-dark text-light"/>
             <input id="upLoadSubBtn" type="submit" value='Upload!' class="upLoadSubBtn bg-dark text-light">

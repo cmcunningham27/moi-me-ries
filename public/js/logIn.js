@@ -1,6 +1,7 @@
 document.getElementById('signup_form_div').style.display = 'none';
 document.getElementById('login_form_div').style.display = 'block';
 
+//user log in call
 const loginBtnFn = async (event) => {
     event.preventDefault();
 
@@ -9,7 +10,6 @@ const loginBtnFn = async (event) => {
     const password = document.querySelector('#password').value;
 
     if(email && password){
-        console.log(email, password);
         const response = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
@@ -24,6 +24,7 @@ const loginBtnFn = async (event) => {
     }
 };
 
+//user signup call
 const signupBtnFn = async (event) => {
     event.preventDefault();
 
@@ -33,7 +34,6 @@ const signupBtnFn = async (event) => {
     const name = document.querySelector('#name').value;
 
     if(email && password && name){
-        console.log(email, password);
         const response = await fetch('/api/users/signup', {
             method: 'POST',
             body: JSON.stringify({ email, password, name }),
@@ -48,6 +48,7 @@ const signupBtnFn = async (event) => {
     }
 };
 
+//toggles between signup and login
 const toggleFn = (f) => {
     if (f === 'signup') {
         document.getElementById('form_title').innerHTML = 'New User Sign Up';
@@ -64,6 +65,3 @@ document.querySelector('#login').addEventListener('click', loginBtnFn);
 document.querySelector('#signup').addEventListener('click', signupBtnFn);
 document.querySelector('.signupLink').addEventListener('click', () => toggleFn('login'));
 document.querySelector('.loginLink').addEventListener('click', () => toggleFn('signup'));
-
-
-

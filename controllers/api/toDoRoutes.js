@@ -3,9 +3,8 @@ const withAuth = require('../../utils/auth');
 
 const { ToDo } = require('../../models');
 
-//create new drop/todo. -not including a bucket id
+//create todo/drop
 router.post('/', withAuth, async (req, res) => {
-    // console.log('!!!!!!!!!!!!!!', req.session.user_id);
     try {
         const toDoData = await ToDo.create({
             ...req.body,
@@ -17,61 +16,43 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-//get all users todos for selected bucket. prob need more specificicty on route
-//user only has one bucket. If user searches other users buckets maybe this is needed.
-router.get('/', withAuth, async (req, res) => {
-    try {
-        const toDoData = await ToDo.findAll(); //do I need to add a where or will it know only toselect user
-        if(!toDoData){
-            res.status(404).json({ message: 'no drops here, make it rain'});
-        }
+// //get single toDo from users bucket
+// router.get('/:id', withAuth, async (req, res) => {
+//     try {
+//         const toDoData = await ToDo.findByPk(req.params.id);
 
-        res.status(200).json(toDoData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//         if(!toDoData){
+//             res.status(404).json({ message: 'cannot find drops you are looking for'});
+//         }
 
-//get single toDo from users bucket
-router.get('/:id', async (req, res) => {
-    try {
-        const toDoData = await ToDo.findByPk(req.params.id);
+//         res.status(200).json(toDoData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
-        if(!toDoData){
-            res.status(404).json({ message: 'cannot find drops you are looking for'});
-        }
+//updates todo/drop
+// router.put('/:id', withAuth, async (req, res) => {
+//     try {
+//         const toDoData = await ToDo.update(req.body, {
+//             where: {
+//                 id: req.params.id
+//             }
+//         });
 
-        res.status(200).json(toDoData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//         if(!toDoData){
+//             res.status(404).json({ message: 'cannot find the drop you are trying to update'});
+//         }
 
-//update drop/todo
-//cannot asign bucket_id w/ put
-//bucket id should be same for each of users todo/dones
-router.put('/:id', withAuth, async (req, res) => {
-    try {
-        const toDoData = await ToDo.update(req.body, {
-            where: {
-                id: req.params.id
-            }
-        });
+//         res.status(200).json(toDoData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
-        if(!toDoData){
-            res.status(404).json({ message: 'cannot find the drop you are trying to update'});
-        }
-
-        res.status(200).json(toDoData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-//delete drop
+//deletes todo/drop
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        console.log(req.params.id);
         const toDoData = await ToDo.destroy({
             where: {
                 id: req.params.id
@@ -84,7 +65,6 @@ router.delete('/:id', withAuth, async (req, res) => {
 
         res.status(200).json(toDoData);
     } catch (err) {
-        // console.log(err);
         res.status(500).json(err);
     }
 });
