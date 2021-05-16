@@ -35,11 +35,9 @@ app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.static('public'));
-// app.use(express.static('images'));
 
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Now listening on ${PORT}`, process.env.CLEARDB_DATABASE_URL));
+    app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
 }).catch((err) => console.log(err, process.env.CLEARDB_DATABASE_URL));
