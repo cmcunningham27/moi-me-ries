@@ -116,7 +116,7 @@ img {
 .bigSplash-vh{
     height: 88vh;
 }
-#bigSplashMain{
+.big-Splash-Main{
     display: flex;
 }
 #bigSplashImage:hover {
@@ -191,8 +191,10 @@ img {
         height: 110vh;
     }
 
-    #bigSplashMain{
+   .big-Splash-Main{
         display: block;
+        margin-left: inherit;
+        margin-top: inherit;
     }
 
 }
