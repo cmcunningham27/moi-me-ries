@@ -141,6 +141,12 @@ img {
     transform: scale(3);
 }
 
+@media screen and (max-width: 1024px){
+    .form-width{
+        width: 40%;
+        margin: 0;
+    }
+} 
 /*---------------- iPad size ----------*/
 @media screen and (max-width: 768px){  
     /* .loggedInH1 {
