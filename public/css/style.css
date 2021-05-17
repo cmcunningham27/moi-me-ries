@@ -168,7 +168,7 @@ img {
     .text{
         font-size: 17px;
     }
-    .join{
+    .join-login{
         margin-left: -155px;
     }
     #loginMain{
@@ -188,13 +188,41 @@ img {
     }
     .section {
         width: 95%;
-        height: 110vh;
+        height: 180vh;
     }
 
    .big-Splash-Main{
         display: block;
+        
+    }
+    .section .big-Splash-Main
+    {
         margin-left: inherit;
         margin-top: inherit;
+        text-align: left;
+    }
+    .section .big-Splash-Main h4
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+        font-size: 18px;
+    }
+    #bigSplashImage:hover {
+        transform: scale(1);
+    }
+
+    .photo-form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .photo-form input {
+        margin: 10px;
+    }
+    .newSplash{
+        width: 200px;
+        margin: auto;
     }
 
 }
