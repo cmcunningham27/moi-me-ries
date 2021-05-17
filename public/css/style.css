@@ -142,11 +142,34 @@ img {
 }
 
 @media screen and (max-width: 1024px){
+    .quill {
+        height: 150px;
+        width: 150px;
+        margin-left: -70px;
+        margin-top: 14px;
+    }
     .form-width{
         width: 40%;
         margin: 0;
     }
 } 
+
+@media screen and (max-width: 993px){
+    .quill {
+        height: 150px;
+        width: 150px;
+        margin-left: -70px;
+        margin-top: 14px;
+    }
+    .home {
+        margin-top: 18px;
+       
+    }
+    .join-login{
+        margin-left: -75px;
+    }
+}
+
 /*---------------- iPad size ----------*/
 @media screen and (max-width: 768px){  
     /* .loggedInH1 {
@@ -225,9 +248,77 @@ img {
     margin: auto;
 }
 }
+@media screen and (max-width: 675px){
+     .loggedInH1 {
+        font-size: 70px;
+        margin-bottom: -4px;
+        text-align: center;
+    }
+    
+    .loggedOutH1 {
+        font-size: 70px;
+        margin-bottom: -4px;
+        text-align: center;
+    }
+    
+    .circle1 {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 0;
+    }
+    
+    .circle2 {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 0;
+    }  
+    .nav{
+        margin-top: -42px;
+     }  
+     .quill {
+        height: 150px;
+        width: 150px;
+        margin-left: -70px;
+        margin-top: 14px;
+    }
+    /* #hompageMain{
+        margin-left: -11px;
+        height: 82vh;
+    } */
+    .home {
+        margin-top: 18px;
+       
+    }
+    .join-login{
+        margin-left: -75px;
+    }
+}
 @media screen and (max-width: 660px){
     #upLoadInput {
         width: 347px;
+    }
+}
+
+@media screen and (max-width: 644px){
+    .big-Splash-Main{
+        display: block;
+        
+    }
+    .section .big-Splash-Main
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+    }
+    .section .big-Splash-Main h4
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+        font-size: 18px;
+    }
+    #bigSplashImage:hover {
+        transform: scale(1);
     }
 }
 @media screen and (max-width: 590px){
@@ -258,6 +349,9 @@ img {
         height: 35px;
         width: 35px;
         margin-bottom: 0;
+    }
+    .nav{
+        margin-top: -14px;
     }
     main{
         top: 80px;
@@ -363,8 +457,11 @@ img {
         width: 419px;
     }
 }
-
-
+@media screen and (max-width: 473px){
+#upLoadInput {
+    width: 364px;
+}
+}
 /* -------iPhone 6/7/8 Plus size------- */
 @media screen and (max-width: 414px){
     .loggedInH1 {
@@ -389,6 +486,9 @@ img {
         height: 30px;
         width: 30px;
         margin-bottom: 0;
+    }
+    .nav{
+        margin-top: -14px;
     }
     main{
         top: 80px;
@@ -470,7 +570,9 @@ img {
     #bigSplashImage:hover {
         transform: scale(1);
     }
-
+#bigSplashText{
+    font-size: 11px;
+}
     .photo-form{
         display: flex;
         flex-direction: column;
@@ -513,6 +615,9 @@ img {
         height: 30px;
         width: 30px;
         margin-bottom: 0;
+    }
+    .nav{
+        margin-top: -14px;
     }
     main{
         top: 80px;
@@ -637,6 +742,9 @@ img {
         width: 30px;
         margin-bottom: 0;
     }
+    .nav{
+        margin-top: -14px;
+    }
     main{
         top: 80px;
         bottom: -226%;
@@ -738,6 +846,9 @@ img {
 
 }
 @media screen and (max-width: 280px){
+    .nav{
+        margin-top: -14px;
+    }
     .quill {
         height: 80px;
         width: 80px;
