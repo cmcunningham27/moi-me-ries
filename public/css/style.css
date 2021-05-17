@@ -209,6 +209,32 @@ img {
 
 }
 
+@media screen and (max-width: 730px){
+.photo-form{
+    display: flex;
+    flex-direction: column;
+}
+.photo-form input {
+    margin: 10px;
+}
+#upLoadInput{
+    width: 398px;
+}
+.newSplash{
+    width: 200px;
+    margin: auto;
+}
+}
+@media screen and (max-width: 660px){
+    #upLoadInput {
+        width: 347px;
+    }
+}
+@media screen and (max-width: 590px){
+    #upLoadInput {
+        width: 329px;
+    }
+}
 @media screen and (max-width: 547px){
     .loggedInH1 {
         font-size: 45px;
@@ -330,6 +356,11 @@ img {
     .newSplash{
         width: 200px;
         margin: auto;
+    }
+}
+@media screen and (max-width: 530px){
+    #upLoadInput {
+        width: 419px;
     }
 }
 
@@ -573,7 +604,7 @@ img {
         margin: 10px;
     }
     #upLoadInput{
-        width: 257px;
+        width: 273px;
     }
     
     .newSplash{
@@ -696,7 +727,7 @@ img {
     .photo-form input {
         margin: 10px;
     }
-    #upLoadInput{
+    #upLoadInput {
         width: 220px;
     }
     
@@ -720,5 +751,8 @@ img {
     .form-width{
         width: 99%;
         margin: 0;
+    }
+    #upLoadInput {
+        width: 182px;
     }
 }
