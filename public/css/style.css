@@ -2,11 +2,25 @@ body {
     font-family: 'Allerta Stencil', sans-serif;
 }
 
-h1 {
-    font-size: 100px;
+.loggedInH1 {
+    font-size: 81px;
 }
 
-.circle {
+.loggedOutH1 {
+    font-size:100px
+}
+
+.circle1 {
+    height: 80px;
+    width: 80px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: -11px;
+    box-shadow: 1px 10px 25px 0 black;
+}
+
+.circle2 {
     height: 100px;
     width: 100px;
     background-color: black;
@@ -17,14 +31,14 @@ h1 {
 }
 
 .top {
-    padding: 15px 0 0 10px;
+    padding: 15px 0 20px 10px;
     background-image: linear-gradient(rgba(248, 11, 11, 100%),  rgba(12, 9, 188, 20%)); 
 }
 
 main {
 
     position: absolute;
-    top: 0;
+    top: 143px;
     left: 0;
     right: 0;
     bottom: 0;
