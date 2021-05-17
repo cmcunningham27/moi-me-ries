@@ -172,42 +172,14 @@ img {
 
 /*---------------- iPad size ----------*/
 @media screen and (max-width: 768px){  
-    /* .loggedInH1 {
-        font-size: 70px;
-        margin-bottom: -4px;
-        text-align: center;
-    }
     
-    .loggedOutH1 {
-        font-size: 70px;
-        margin-bottom: -4px;
-        text-align: center;
-    }
-    
-    .circle1 {
-        height: 50px;
-        width: 50px;
-        margin-bottom: 0;
-    }
-    
-    .circle2 {
-        height: 50px;
-        width: 50px;
-        margin-bottom: 0;
-    }  
-    .nav{
-        margin-top: -42px;
-    } */
     .quill {
         height: 150px;
         width: 150px;
         margin-left: -70px;
         margin-top: 14px;
     }
-    /* #hompageMain{
-        margin-left: -11px;
-        height: 82vh;
-    } */
+
     .home {
         margin-top: 18px;
        
@@ -215,9 +187,7 @@ img {
     .join-login{
         margin-left: -75px;
     }
-    /* #loginMain{
-        height: 83vh;
-    } */
+
     .form-width{
         width: 40%;
         margin: 0;
@@ -233,20 +203,20 @@ img {
 }
 
 @media screen and (max-width: 730px){
-.photo-form{
+    .photo-form{
     display: flex;
     flex-direction: column;
-}
-.photo-form input {
+    }
+    .photo-form input {
     margin: 10px;
-}
-#upLoadInput{
+    }
+    #upLoadInput{
     width: 398px;
-}
-.newSplash{
+    }
+    .newSplash{
     width: 200px;
     margin: auto;
-}
+    }
 }
 @media screen and (max-width: 675px){
      .loggedInH1 {
@@ -281,10 +251,7 @@ img {
         margin-left: -70px;
         margin-top: 14px;
     }
-    /* #hompageMain{
-        margin-left: -11px;
-        height: 82vh;
-    } */
+
     .home {
         margin-top: 18px;
        
@@ -293,6 +260,7 @@ img {
         margin-left: -75px;
     }
 }
+
 @media screen and (max-width: 660px){
     #upLoadInput {
         width: 347px;
@@ -375,10 +343,6 @@ img {
         margin-left: -274px;
         margin-top: 14px;
     }
-    #hompageMain{
-        /* margin-left: -11px;
-        height: 82vh; */
-    }
     .home {
         margin-top: 14px;
         margin-left: auto;
@@ -394,9 +358,7 @@ img {
     .join-login{
         margin-left: -280px;
     }
-    /* #loginMain{
-        height: 83vh;
-    } */
+    
     .form-width{
         width: 51%;
         margin: 0;
@@ -458,9 +420,9 @@ img {
     }
 }
 @media screen and (max-width: 473px){
-#upLoadInput {
-    width: 364px;
-}
+    #upLoadInput {
+        width: 364px;
+    }
 }
 /* -------iPhone 6/7/8 Plus size------- */
 @media screen and (max-width: 414px){
@@ -512,10 +474,7 @@ img {
         margin-left: -170px;
         margin-top: 14px;
     }
-    #hompageMain{
-        /* margin-left: -11px;
-        height: 82vh; */
-    }
+    
     .home {
         margin-top: 14px;
         margin-left: auto;
@@ -531,9 +490,7 @@ img {
     .join-login{
         margin-left: -175px;
     }
-    /* #loginMain{
-        height: 83vh;
-    } */
+    
     .form-width{
         width: 95%;
         margin: 0;
@@ -641,10 +598,7 @@ img {
         margin-left: -153px;
         margin-top: 14px;
     }
-    #hompageMain{
-        /* margin-left: -11px;
-        height: 82vh; */
-    }
+    
     .home {
         margin-top: 14px;
         margin-left: auto;
@@ -660,9 +614,7 @@ img {
     .join-login{
         margin-left: -155px;
     }
-    /* #loginMain{
-        height: 83vh;
-    } */
+    
     .form-width{
         width: 95%;
         margin: 0;
@@ -767,10 +719,7 @@ img {
         margin-left: -109px;
         margin-top: 14px;
     }
-    #hompageMain{
-        /* margin-left: -11px;
-        height: 82vh; */
-    }
+    
     .home {
         margin-top: 14px;
         margin-left: auto;
@@ -787,9 +736,7 @@ img {
         margin-left: -114px;
         font-size: 19px;
     }
-    /* #loginMain{
-        height: 83vh;
-    } */
+    
     .form-width{
         width: 95%;
         margin: 0;
