@@ -116,6 +116,9 @@ img {
 .bigSplash-vh{
     height: 88vh;
 }
+#bigSplashMain{
+    display: flex;
+}
 #bigSplashImage:hover {
     box-shadow: rgba(248, 11, 11, 100%);
     transform: scale(3);
@@ -181,9 +184,15 @@ img {
     }
     .aside {
         width: 95%;
+        margin: 10px;
     }
     .section {
         width: 95%;
+        height: 110vh;
+    }
+
+    #bigSplashMain{
+        display: block;
     }
 
 }
