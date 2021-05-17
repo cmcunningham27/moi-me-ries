@@ -22,8 +22,6 @@ h1 {
 }
 
 main {
-    /* background-image: linear-gradient(45deg, rgba(0, 0, 0, 0%), rgba(0, 0, 0, 75%)); */
-    height: 131vh;
     width: 100%;
     background-image: url('../images/pexels-artem-beliaikin-2106776.jpg');
     background-position: center;
@@ -130,215 +128,8 @@ img {
 
 }
 
-/* #homepageMain {
-    margin: 5px;
-} */
-@media (max-width: 375px){
-    h1 {
-        font-size: 50px;
-        padding: 10px;
-        margin: auto;
-    }
-    .circle {
-        height: 40px;
-        width: 40px;
-        margin-bottom: -4px;
-    }
-    h4{
-    padding: 3px;
-    margin: 3px;
-    font-size: 16px;
-    text-align: center;
-    }
-    
-    .quill {
-        height: 100px;
-        width: 100px;
-        margin-left: -153px;
-        margin-top: 14px;
-    }
-    #hompageMain{
-        /* margin-left: -11px; */
-        height: 82vh;
-    }
-    .home {
-        margin-top: 14px;
-        margin-left: auto;
-        display: block;
-    }
-    .col-7 {
-        width: 100%
-    }
-    .text{
-        font-size: 17px;
-    }
-    .join-login{
-        margin-left: -155px;
-    }
-    #loginMain{
-        height: 83vh;
-    }
-    .form-width{
-        width: 100%;
-        background-color: #f8f9fa38;
-        margin: 0;
-    }
-    .bucket-page{
-        display: block;
-    }
-    .aside {
-        width: 95%;
-        margin: 10px;
-    }
-    .section {
-        width: 95%;
-        height: 180vh;
-    }
-
-   .big-Splash-Main{
-        display: block;
-        
-    }
-    .section .big-Splash-Main
-    {
-        margin-left: inherit;
-        margin-top: inherit;
-        text-align: left;
-    }
-    .section .big-Splash-Main h4
-    {
-        margin-left: inherit;
-        margin-top: inherit;
-        text-align: left;
-        font-size: 18px;
-    }
-    #bigSplashImage:hover {
-        transform: scale(1);
-    }
-
-    .photo-form{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .photo-form input {
-        margin: 10px;
-    }
-    #upLoadInput{
-        width: 330px;
-    }
-    
-    .newSplash{
-        width: 200px;
-        margin: auto;
-    }
-
-}
-
-@media (max-width: 414px){
-    h1 {
-        font-size: 50px;
-        padding: 10px;
-        margin: auto;
-    }
-    .circle {
-        height: 40px;
-        width: 40px;
-        margin-bottom: -4px;
-    }
-    h4{
-    padding: 3px;
-    margin: 3px;
-    font-size: 16px;
-    text-align: center;
-    }
-    
-    .quill {
-        height: 100px;
-        width: 100px;
-        margin-left: -153px;
-        margin-top: 14px;
-    }
-    #hompageMain{
-        /* margin-left: -11px; */
-        height: 82vh;
-    }
-    .home {
-        margin-top: 14px;
-        margin-left: auto;
-        display: block;
-    }
-    .col-7 {
-        width: 100%
-    }
-    .text{
-        font-size: 17px;
-    }
-    .join-login{
-        margin-left: -155px;
-    }
-    #loginMain{
-        height: 83vh;
-    }
-    .form-width{
-        width: 100%;
-        background-color: #f8f9fa38;
-        margin: 0;
-    }
-    .bucket-page{
-        display: block;
-    }
-    .aside {
-        width: 95%;
-        margin: 10px;
-    }
-    .section {
-        width: 95%;
-        height: 180vh;
-    }
-
-   .big-Splash-Main{
-        display: block;
-        
-    }
-    .section .big-Splash-Main
-    {
-        margin-left: inherit;
-        margin-top: inherit;
-        text-align: left;
-    }
-    .section .big-Splash-Main h4
-    {
-        margin-left: inherit;
-        margin-top: inherit;
-        text-align: left;
-        font-size: 18px;
-    }
-    #bigSplashImage:hover {
-        transform: scale(1);
-    }
-
-    .photo-form{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .photo-form input {
-        margin: 10px;
-    }
-    #upLoadInput{
-        width: 330px;
-    }
-    
-    .newSplash{
-        width: 200px;
-        margin: auto;
-    }
-
-}
-
 /*---------------- iPad size ----------*/
-@media (max-width: 768px){    
+@media screen and (max-width: 768px){    
     .quill {
         height: 150px;
         width: 150px;
@@ -373,3 +164,212 @@ img {
     }
 
 }
+
+/* -------iPhone 6/7/8 Plus size------- */
+@media screen and (max-width: 414px){
+    h1 {
+        font-size: 50px;
+        padding: 10px;
+        margin: auto;
+    }
+    .circle {
+        height: 40px;
+        width: 40px;
+        margin-bottom: -4px;
+    }
+    h4{
+    padding: 3px;
+    margin: 3px;
+    font-size: 16px;
+    text-align: center;
+    }
+    
+    .quill {
+        height: 100px;
+        width: 100px;
+        margin-left: -153px;
+        margin-top: 14px;
+    }
+    #hompageMain{
+        /* margin-left: -11px; */
+        height: 82vh;
+    }
+    .home {
+        margin-top: 14px;
+        margin-left: auto;
+        display: block;
+    }
+    .col-7 {
+        width: 100%
+    }
+    .text{
+        font-size: 17px;
+    }
+    .join-login{
+        margin-left: -155px;
+    }
+    #loginMain{
+        height: 83vh;
+    }
+    .form-width{
+        width: 100%;
+        background-color: #f8f9fa38;
+        margin: 0;
+    }
+    .bucket-page{
+        display: block;
+    }
+    .aside {
+        width: 95%;
+        margin: 10px;
+    }
+    .section {
+        width: 95%;
+        height: 180vh;
+    }
+
+   .big-Splash-Main{
+        display: block;
+        
+    }
+    .section .big-Splash-Main
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+    }
+    .section .big-Splash-Main h4
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+        font-size: 18px;
+    }
+    #bigSplashImage:hover {
+        transform: scale(1);
+    }
+
+    .photo-form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .photo-form input {
+        margin: 10px;
+    }
+    #upLoadInput{
+        width: 308px;
+    }
+    
+    .newSplash{
+        width: 200px;
+        margin: auto;
+    }
+
+}
+
+
+/* -------iPhon X size-------- */
+@media screen and (max-width: 375px){
+    h1 {
+        font-size: 50px;
+        padding: 10px;
+        margin: auto;
+    }
+    .circle {
+        height: 40px;
+        width: 40px;
+        margin-bottom: -4px;
+    }
+    h4{
+    padding: 3px;
+    margin: 3px;
+    font-size: 16px;
+    text-align: center;
+    }
+    
+    .quill {
+        height: 100px;
+        width: 100px;
+        margin-left: -153px;
+        margin-top: 14px;
+    }
+    #hompageMain{
+        /* margin-left: -11px; */
+        height: 82vh;
+    }
+    .home {
+        margin-top: 14px;
+        margin-left: auto;
+        display: block;
+    }
+    .col-7 {
+        width: 100%
+    }
+    .text{
+        font-size: 17px;
+    }
+    .join-login{
+        margin-left: -155px;
+    }
+    #loginMain{
+        height: 83vh;
+    }
+    .form-width{
+        width: 100%;
+        background-color: #f8f9fa38;
+        margin: 0;
+    }
+    .bucket-page{
+        display: block;
+    }
+    .aside {
+        width: 95%;
+        margin: 10px;
+    }
+    .section {
+        width: 95%;
+        height: 188vh;
+    }
+
+   .big-Splash-Main{
+        display: block;
+        
+    }
+    .section .big-Splash-Main
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+    }
+    .section .big-Splash-Main h4
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+        font-size: 18px;
+    }
+    #bigSplashImage:hover {
+        transform: scale(1);
+    }
+
+    .photo-form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .photo-form input {
+        margin: 10px;
+    }
+    #upLoadInput{
+        width: 272px;
+    }
+    
+    .newSplash{
+        width: 200px;
+        margin: auto;
+    }
+
+}
+
+
