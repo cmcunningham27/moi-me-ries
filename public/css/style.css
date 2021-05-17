@@ -337,7 +337,7 @@ img {
 
 }
 
-
+/*---------------- iPad size ----------*/
 @media (max-width: 768px){    
     .quill {
         height: 150px;
@@ -364,54 +364,12 @@ img {
         background-color: #f8f9fa38;
         margin: 0;
     }
-    .bucket-page{
-        display: block;
-    }
     .aside {
-        width: 95%;
+        width: 30%;
         margin: 10px;
     }
     .section {
-        width: 95%;
-        height: 180vh;
-    }
-
-   .big-Splash-Main{
-        display: block;
-        
-    }
-    .section .big-Splash-Main
-    {
-        margin-left: inherit;
-        margin-top: inherit;
-        text-align: left;
-    }
-    .section .big-Splash-Main h4
-    {
-        margin-left: inherit;
-        margin-top: inherit;
-        text-align: left;
-        font-size: 18px;
-    }
-    #bigSplashImage:hover {
-        transform: scale(1);
-    }
-
-    .photo-form{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .photo-form input {
-        margin: 10px;
-    }
-    #upLoadInput{
-        width: 330px;
-    }
-    
-    .newSplash{
-        width: 200px;
-        margin: auto;
+        width: 70%;
     }
 
 }
