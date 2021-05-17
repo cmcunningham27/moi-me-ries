@@ -27,6 +27,7 @@ main {
     background-image: url('../images/pexels-artem-beliaikin-2106776.jpg');
     background-position: center;
     background-size: cover;
+    background-attachment: fixed
 }
 
 .nav {
@@ -75,6 +76,10 @@ main {
     background-color: rgba(12, 9, 188, 20%);
 }
 
+.bucket-page{
+    display: flex;
+}
+
 .new {
     background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
 }
@@ -108,10 +113,14 @@ img {
 #bigSplash {
     background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
 }
-  
+.bigSplash-vh{
+    height: 88vh;
+}
 #bigSplashImage:hover {
     box-shadow: rgba(248, 11, 11, 100%);
     transform: scale(3);
+   
+
 }
 
 /* #homepageMain {
@@ -166,6 +175,15 @@ img {
         width: 100%;
         background-color: #f8f9fa38;
         margin: 0;
+    }
+    .bucket-page{
+        display: block;
+    }
+    .aside {
+        width: 95%;
+    }
+    .section {
+        width: 95%;
     }
 
 }
