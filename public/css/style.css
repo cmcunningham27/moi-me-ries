@@ -22,7 +22,12 @@ h1 {
 }
 
 main {
-    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url('../images/pexels-artem-beliaikin-2106776.jpg');
     background-position: center;
     background-size: cover;
@@ -124,8 +129,6 @@ img {
 #bigSplashImage:hover {
     box-shadow: rgba(248, 11, 11, 100%);
     transform: scale(3);
-   
-
 }
 
 /*---------------- iPad size ----------*/
@@ -371,5 +374,4 @@ img {
     }
 
 }
-
 
