@@ -41,7 +41,7 @@ main {
     top: 143px;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: -400px;
     background-image: url('../images/pexels-artem-beliaikin-2106776.jpg');
     background-position: center;
     background-size: cover;
@@ -55,9 +55,9 @@ main {
 .text {
     background-color: rgba(255, 255, 255, 0.5);
 }
-#loginMain{
+/* #loginMain{
     height: 83vh;
-}
+} */
 .aside {
     width: 25%;
     margin: 10px 10px 10px 0;
@@ -134,9 +134,7 @@ img {
 #bigSplash {
     background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
 }
-.bigSplash-vh{
-    height: 88vh;
-}
+
 .big-Splash-Main{
     display: flex;
 }
@@ -153,10 +151,10 @@ img {
         margin-left: -70px;
         margin-top: 14px;
     }
-    #hompageMain{
-        /* margin-left: -11px; */
+    /* #hompageMain{
+        margin-left: -11px;
         height: 82vh;
-    }
+    } */
     .home {
         margin-top: 18px;
        
@@ -164,9 +162,9 @@ img {
     .join-login{
         margin-left: -75px;
     }
-    #loginMain{
+    /* #loginMain{
         height: 83vh;
-    }
+    } */
     .form-width{
         width: 100%;
         background-color: #f8f9fa38;
@@ -288,15 +286,32 @@ img {
 
 /* -------iPhon X size-------- */
 @media screen and (max-width: 375px){
-    h1 {
-        font-size: 50px;
-        padding: 10px;
-        margin: auto;
-    }
-    .circle {
-        height: 40px;
-        width: 40px;
+    
+    .loggedInH1 {
+        font-size: 40px;
         margin-bottom: -4px;
+    }
+    
+    .loggedOutH1 {
+        font-size: 40px;
+        margin-bottom: -4px;
+    }
+    
+    .circle1 {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 0;
+    }
+    
+    .circle2 {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 0;
+    }
+    main{
+        top: 80px;
+        bottom: -200%;
+
     }
     h4{
     padding: 3px;
@@ -323,6 +338,7 @@ img {
     .col-7 {
         width: 100%
     }
+    
     .text{
         font-size: 17px;
     }
@@ -346,7 +362,7 @@ img {
     }
     .section {
         width: 95%;
-        height: 188vh;
+        height: 200vh;
     }
 
    .big-Splash-Main{
