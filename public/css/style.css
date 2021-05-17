@@ -87,6 +87,9 @@ main {
 form {
     margin-top: 15px;
 }
+#upLoadInput{
+    width: 240px;
+}
 
 #bigSplash {
     display: none;
@@ -220,6 +223,10 @@ img {
     .photo-form input {
         margin: 10px;
     }
+    #upLoadInput{
+        width: 270px;
+    }
+    
     .newSplash{
         width: 200px;
         margin: auto;
