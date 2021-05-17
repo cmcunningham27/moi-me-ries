@@ -41,7 +41,7 @@ main {
     top: 143px;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: -400px;
     background-image: url('../images/pexels-artem-beliaikin-2106776.jpg');
     background-position: center;
     background-size: cover;
@@ -55,9 +55,7 @@ main {
 .text {
     background-color: rgba(255, 255, 255, 0.5);
 }
-#loginMain{
-    height: 83vh;
-}
+
 .aside {
     width: 25%;
     margin: 10px 10px 10px 0;
@@ -134,9 +132,7 @@ img {
 #bigSplash {
     background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
 }
-.bigSplash-vh{
-    height: 88vh;
-}
+
 .big-Splash-Main{
     display: flex;
 }
@@ -145,17 +141,25 @@ img {
     transform: scale(3);
 }
 
-/*---------------- iPad size ----------*/
-@media screen and (max-width: 768px){    
+@media screen and (max-width: 1024px){
     .quill {
         height: 150px;
         width: 150px;
         margin-left: -70px;
         margin-top: 14px;
     }
-    #hompageMain{
-        /* margin-left: -11px; */
-        height: 82vh;
+    .form-width{
+        width: 40%;
+        margin: 0;
+    }
+} 
+
+@media screen and (max-width: 993px){
+    .quill {
+        height: 150px;
+        width: 150px;
+        margin-left: -70px;
+        margin-top: 14px;
     }
     .home {
         margin-top: 18px;
@@ -164,12 +168,28 @@ img {
     .join-login{
         margin-left: -75px;
     }
-    #loginMain{
-        height: 83vh;
+}
+
+/*---------------- iPad size ----------*/
+@media screen and (max-width: 768px){  
+    
+    .quill {
+        height: 150px;
+        width: 150px;
+        margin-left: -70px;
+        margin-top: 14px;
     }
+
+    .home {
+        margin-top: 18px;
+       
+    }
+    .join-login{
+        margin-left: -75px;
+    }
+
     .form-width{
-        width: 100%;
-        background-color: #f8f9fa38;
+        width: 40%;
         margin: 0;
     }
     .aside {
@@ -182,17 +202,129 @@ img {
 
 }
 
-/* -------iPhone 6/7/8 Plus size------- */
-@media screen and (max-width: 414px){
-    h1 {
-        font-size: 50px;
-        padding: 10px;
-        margin: auto;
+@media screen and (max-width: 730px){
+    .photo-form{
+    display: flex;
+    flex-direction: column;
     }
-    .circle {
-        height: 40px;
-        width: 40px;
+    .photo-form input {
+    margin: 10px;
+    }
+    #upLoadInput{
+    width: 398px;
+    }
+    .newSplash{
+    width: 200px;
+    margin: auto;
+    }
+}
+@media screen and (max-width: 675px){
+     .loggedInH1 {
+        font-size: 70px;
         margin-bottom: -4px;
+        text-align: center;
+    }
+    
+    .loggedOutH1 {
+        font-size: 70px;
+        margin-bottom: -4px;
+        text-align: center;
+    }
+    
+    .circle1 {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 0;
+    }
+    
+    .circle2 {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 0;
+    }  
+    .nav{
+        margin-top: -42px;
+     }  
+     .quill {
+        height: 150px;
+        width: 150px;
+        margin-left: -70px;
+        margin-top: 14px;
+    }
+
+    .home {
+        margin-top: 18px;
+       
+    }
+    .join-login{
+        margin-left: -75px;
+    }
+}
+
+@media screen and (max-width: 660px){
+    #upLoadInput {
+        width: 347px;
+    }
+}
+
+@media screen and (max-width: 644px){
+    .big-Splash-Main{
+        display: block;
+        
+    }
+    .section .big-Splash-Main
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+    }
+    .section .big-Splash-Main h4
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+        font-size: 18px;
+    }
+    #bigSplashImage:hover {
+        transform: scale(1);
+    }
+}
+@media screen and (max-width: 590px){
+    #upLoadInput {
+        width: 329px;
+    }
+}
+@media screen and (max-width: 547px){
+    .loggedInH1 {
+        font-size: 45px;
+        margin-bottom: -4px;
+        text-align: center;
+    }
+    
+    .loggedOutH1 {
+        font-size: 45px;
+        margin-bottom: -4px;
+        text-align: center;
+    }
+    
+    .circle1 {
+        height: 35px;
+        width: 35px;
+        margin-bottom: 0;
+    }
+    
+    .circle2 {
+        height: 35px;
+        width: 35px;
+        margin-bottom: 0;
+    }
+    .nav{
+        margin-top: -14px;
+    }
+    main{
+        top: 80px;
+        bottom: -200%;
+
     }
     h4{
     padding: 3px;
@@ -200,16 +332,16 @@ img {
     font-size: 16px;
     text-align: center;
     }
+    .name-users{
+        font-size: 16px;
+        margin-bottom: -15px;
+    }
     
     .quill {
         height: 100px;
         width: 100px;
-        margin-left: -153px;
+        margin-left: -274px;
         margin-top: 14px;
-    }
-    #hompageMain{
-        /* margin-left: -11px; */
-        height: 82vh;
     }
     .home {
         margin-top: 14px;
@@ -219,18 +351,16 @@ img {
     .col-7 {
         width: 100%
     }
+    
     .text{
         font-size: 17px;
     }
     .join-login{
-        margin-left: -155px;
+        margin-left: -280px;
     }
-    #loginMain{
-        height: 83vh;
-    }
+    
     .form-width{
-        width: 100%;
-        background-color: #f8f9fa38;
+        width: 51%;
         margin: 0;
     }
     .bucket-page{
@@ -242,7 +372,139 @@ img {
     }
     .section {
         width: 95%;
-        height: 180vh;
+        height: auto;
+    }
+
+   .big-Splash-Main{
+        display: block;
+        
+    }
+    .section .big-Splash-Main
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+    }
+    .section .big-Splash-Main h4
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+        font-size: 18px;
+    }
+    #bigSplashImage:hover {
+        transform: scale(1);
+        
+    }
+
+    .photo-form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .photo-form input {
+        margin: 10px;
+    }
+    #upLoadInput{
+        width: 435px;
+    }
+    
+    .newSplash{
+        width: 200px;
+        margin: auto;
+    }
+}
+@media screen and (max-width: 530px){
+    #upLoadInput {
+        width: 419px;
+    }
+}
+@media screen and (max-width: 473px){
+    #upLoadInput {
+        width: 364px;
+    }
+}
+/* -------iPhone 6/7/8 Plus size------- */
+@media screen and (max-width: 414px){
+    .loggedInH1 {
+        font-size: 40px;
+        margin-bottom: -4px;
+        text-align: center;
+    }
+    
+    .loggedOutH1 {
+        font-size: 40px;
+        margin-bottom: -4px;
+        text-align: center;
+    }
+    
+    .circle1 {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 0;
+    }
+    
+    .circle2 {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 0;
+    }
+    .nav{
+        margin-top: -14px;
+    }
+    main{
+        top: 80px;
+        bottom: -200%;
+
+    }
+    h4{
+    padding: 3px;
+    margin: 3px;
+    font-size: 16px;
+    text-align: center;
+    }
+    .name-users{
+        font-size: 16px;
+        margin-bottom: -15px;
+    }
+    
+    .quill {
+        height: 100px;
+        width: 100px;
+        margin-left: -170px;
+        margin-top: 14px;
+    }
+    
+    .home {
+        margin-top: 14px;
+        margin-left: auto;
+        display: block;
+    }
+    .col-7 {
+        width: 100%
+    }
+    
+    .text{
+        font-size: 17px;
+    }
+    .join-login{
+        margin-left: -175px;
+    }
+    
+    .form-width{
+        width: 95%;
+        margin: 0;
+    }
+    .bucket-page{
+        display: block;
+    }
+    .aside {
+        width: 95%;
+        margin: 10px;
+    }
+    .section {
+        width: 95%;
+        height: auto;
     }
 
    .big-Splash-Main{
@@ -265,7 +527,9 @@ img {
     #bigSplashImage:hover {
         transform: scale(1);
     }
-
+#bigSplashText{
+    font-size: 11px;
+}
     .photo-form{
         display: flex;
         flex-direction: column;
@@ -275,34 +539,57 @@ img {
         margin: 10px;
     }
     #upLoadInput{
-        width: 308px;
+        width: 309px;
     }
     
     .newSplash{
         width: 200px;
         margin: auto;
     }
-
 }
 
 
 /* -------iPhon X size-------- */
 @media screen and (max-width: 375px){
-    h1 {
-        font-size: 50px;
-        padding: 10px;
-        margin: auto;
-    }
-    .circle {
-        height: 40px;
-        width: 40px;
+    
+    .loggedInH1 {
+        font-size: 40px;
         margin-bottom: -4px;
+    }
+    
+    .loggedOutH1 {
+        font-size: 40px;
+        margin-bottom: -4px;
+    }
+    
+    .circle1 {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 0;
+    }
+    
+    .circle2 {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 0;
+    }
+    .nav{
+        margin-top: -14px;
+    }
+    main{
+        top: 80px;
+        bottom: -200%;
+
     }
     h4{
     padding: 3px;
     margin: 3px;
     font-size: 16px;
     text-align: center;
+    }
+    .name-users{
+        font-size: 16px;
+        margin-bottom: -7px;
     }
     
     .quill {
@@ -311,10 +598,7 @@ img {
         margin-left: -153px;
         margin-top: 14px;
     }
-    #hompageMain{
-        /* margin-left: -11px; */
-        height: 82vh;
-    }
+    
     .home {
         margin-top: 14px;
         margin-left: auto;
@@ -323,18 +607,16 @@ img {
     .col-7 {
         width: 100%
     }
+    
     .text{
         font-size: 17px;
     }
     .join-login{
         margin-left: -155px;
     }
-    #loginMain{
-        height: 83vh;
-    }
+    
     .form-width{
-        width: 100%;
-        background-color: #f8f9fa38;
+        width: 95%;
         margin: 0;
     }
     .bucket-page{
@@ -346,7 +628,7 @@ img {
     }
     .section {
         width: 95%;
-        height: 188vh;
+        height: auto;
     }
 
    .big-Splash-Main{
@@ -379,7 +661,7 @@ img {
         margin: 10px;
     }
     #upLoadInput{
-        width: 272px;
+        width: 273px;
     }
     
     .newSplash{
@@ -389,3 +671,146 @@ img {
 
 }
 
+@media screen and (max-width: 320px){
+    
+    .loggedInH1 {
+        font-size: 40px;
+        margin-bottom: -4px;
+    }
+    
+    .loggedOutH1 {
+        font-size: 40px;
+        margin-bottom: -4px;
+    }
+    
+    .circle1 {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 0;
+    }
+    
+    .circle2 {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 0;
+    }
+    .nav{
+        margin-top: -14px;
+    }
+    main{
+        top: 80px;
+        bottom: -226%;
+
+    }
+    h4{
+    padding: 3px;
+    margin: 3px;
+    font-size: 16px;
+    text-align: center;
+    }
+    .name-users{
+        font-size: 16px;
+        margin-bottom: -7px;
+    }
+    
+    .quill {
+        height: 90px;
+        width: 90px;
+        margin-left: -109px;
+        margin-top: 14px;
+    }
+    
+    .home {
+        margin-top: 14px;
+        margin-left: auto;
+        display: block;
+    }
+    .col-7 {
+        width: 100%
+    }
+    
+    .text{
+        font-size: 14px;
+    }
+    .join-login{
+        margin-left: -114px;
+        font-size: 19px;
+    }
+    
+    .form-width{
+        width: 95%;
+        margin: 0;
+    }
+    .bucket-page{
+        display: block;
+    }
+    .aside {
+        width: 95%;
+        margin: 10px;
+    }
+    .section {
+        width: 95%;
+        height: auto;
+    }
+
+   .big-Splash-Main{
+        display: block;
+        
+    }
+    .section .big-Splash-Main
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+    }
+    .section .big-Splash-Main h4
+    {
+        margin-left: inherit;
+        margin-top: inherit;
+        text-align: left;
+        font-size: 18px;
+    }
+    #bigSplashImage:hover {
+        transform: scale(1);
+    }
+
+    .photo-form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .photo-form input {
+        margin: 10px;
+    }
+    #upLoadInput {
+        width: 220px;
+    }
+    
+    .newSplash{
+        width: 200px;
+        margin: auto;
+    }
+
+}
+@media screen and (max-width: 280px){
+    .nav{
+        margin-top: -14px;
+    }
+    .quill {
+        height: 80px;
+        width: 80px;
+        margin-left: -76px;
+        margin-top: 14px;
+    }
+    .join-login {
+        margin-left: -100px;
+        font-size: 19px;
+    }
+    .form-width{
+        width: 99%;
+        margin: 0;
+    }
+    #upLoadInput {
+        width: 182px;
+    }
+}
