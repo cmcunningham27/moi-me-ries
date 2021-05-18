@@ -3,31 +3,39 @@
     <a id="logout" class="logout text-dark ms-auto" href="#">LOGOUT</a>
 </div>
 <div class="bucket-page  flex-row">
-    <div class="aside bg-light p-4">
-        {{#if logged_in}}
+    <div id="listItemList" class="aside bg-light p-4">
+        {{log user '!!!USER'}}
+        {{!-- {{#if logged_in}} --}}
         <h5><u>DROPS:</u></h5>
         <ol id="dropList">
-            {{#each user.todos as |todo|}}
-                <li class="makeSplash text-dark" data-id="{{todo.id}}" data-title="{{todo.title}}" data-user_id="{{todo.user_id}}">{{todo.title}}</li>
+            {{#each user.list_items as |todo|}}
+            {{#unless todo.isDone}}
+            {{log todo.isDone}}
+                <li id="dropNum{{todo.id}}" class="makeSplash text-dark" data-list_item_id="{{todo.id}}" data-title="{{todo.title}}" data-user_id="{{todo.user_id}}">{{todo.title}}</li>
+            {{/unless}}
             {{/each}}
         </ol>
-         {{log user.dones.[0] 'user'}}
+         {{!-- {{log user.list_items.[0] 'user'}} --}}
         <h5 class="pt-5"><u>SPLASHES:</u></h5>
-        <ol id='splashTitleList'>
-            {{#each user.dones as |done|}}
-           
+        <ol id="splashTitleList">
+        {{!-- {{log user.list_items}} --}}
+        {{#each user.list_items as |done|}}
+            {{#if done.isDone}}
+            {{!-- {{log done '!!!!splash title!!!!'}} --}}
             <a href="">
-                <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}" data-image="{{done.image}}"  style="text-decoration:line-through">{{done.title}}</li>
+                <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}"  style="text-decoration:line-through">{{done.title}}</li>
+                {{!-- <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}" data-image="{{done.image}}"  style="text-decoration:line-through">{{done.title}}</li> --}}
             </a>
-            {{/each}}
+            {{/if}}
+        {{/each}}
         </ol>
-        {{/if}}
+        {{!-- {{/if}} --}}
     </div>
     <div id="mainWrap" class="section bg-light p-3">
 
         <div id="newDrop_form" class="new flex-row m-10 p-3 h-15 rounded">
             <input type="text" class="dropItem form-control mt-10 me-3" placeholder="Add to your Bucket" aria-label="Add to your Bucket">
-            <button class="drop bg-dark rounded text-light">DROP</button>
+            <button id="newDropBtn"class="drop bg-dark rounded text-light">DROP</button>
         </div>
 
         <div id="newSplash_form" class="new flex-column m-10 p-3 rounded">
@@ -36,12 +44,11 @@
                 
             </p>
             <textarea id="content"></textarea>
-
-            <form class="photo-form" action="api/splashes/pics" method="POST" encType="multipart/form-data">
+            <form class="photo-form" action="" method="POST" encType="multipart/form-data">
             
             <p>Upload Photo!</p>
             <input id="upLoadInput" type="file" name="splashPic" accept="image/*" class="bg-dark text-light"/>
-            <input id="upLoadSubBtn" type="submit" value='Upload!' class="upLoadSubBtn bg-dark text-light">
+            <input id="upLoadSubBtn" type="submit" value="Upload!" class="upLoadSubBtn bg-dark text-light">
             </form>
 
             <button class="newSplash join ms-auto bg-dark text-light m-15">
@@ -50,9 +57,11 @@
            
         </div>
        <div class="bigSplash-vh">
-        <div id='bigSplash'class="container   mt-4 border">
+        <div id="bigSplash" class="container   mt-4 border">
             <div class="big-Splash-Main flex-row m-3">
+            {{log '!!!! user.lis_items!!!!' user.list_items.[0].image}}
                 <img id="bigSplashImage" class="" src="" alt="">
+                {{!-- <a id="bigSplashImage" class="" href="" alt="">img</a> --}}
                 <section id="bigSplashMain" class="d-flex flex-column p-3">
                     <h2 id="bigSplashTitle">test</h2>
                     <br>
@@ -63,7 +72,7 @@
         </div>
 
 
-        {{#each (limitSplashes user.dones 3) as |done|}}
+        {{#each (limitSplashes user.list_items 3) as |done|}}
            
             {{> short-splashes done=done}}
         

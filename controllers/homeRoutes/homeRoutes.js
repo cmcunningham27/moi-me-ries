@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { User, ToDo, Done } = require('../../models');
+const { User, ListItem, ToDo, Done } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//pre signin/login intro page
+//pre sign in/login intro page
 router.get('/', async (req, res) => {
     try {
         res.render('homepage', {
@@ -13,14 +13,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-//directs user to their bucket page and passes along all of their user data (todo/drops, done/splashes and user info)
+//directs user to their bucket page and passes along all of their user list-item data
 router.get('/bucket', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-
-            include: [{ model: ToDo, attributes: ['title', 'id', 'user_id'] },
-                { model: Done, attributes: ['title', 'content','id','image'] }],
+            include: { model: ListItem},
+            attributes: {exclude: ['password'] },
         });
 
         const user = userData.get({ plain: true });

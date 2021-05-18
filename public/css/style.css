@@ -10,6 +10,11 @@ body {
     font-size:100px
 }
 
+.signupLink,
+.loginLink {
+    cursor: pointer;
+}
+
 .circle1 {
     height: 80px;
     width: 80px;
@@ -60,6 +65,10 @@ main {
     width: 25%;
     margin: 10px 10px 10px 0;
     box-shadow: 1px 7px 6px 0 black;
+}
+
+.makeSplash{
+    cursor: pointer;
 }
 
 .section {
