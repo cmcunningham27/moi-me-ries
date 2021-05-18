@@ -84,7 +84,7 @@ main {
     background-image: linear-gradient(rgba(248, 11, 11, 100%),  rgba(12, 9, 188, 20%));
 }
 .form-width{
-    width:25%;
+    width:35%;
     background-color:#f8f9fa;
 }
 
@@ -110,6 +110,7 @@ form {
 #bigSplash {
     display: none;
 }
+
 
 .shortSplash{
     background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
@@ -169,6 +170,11 @@ img {
         margin-left: -75px;
     }
 }
+@media screen and (max-width: 893px){
+    #bigSplashText{
+    font-size: 12px;
+    }
+}
 
 /*---------------- iPad size ----------*/
 @media screen and (max-width: 768px){  
@@ -189,7 +195,7 @@ img {
     }
 
     .form-width{
-        width: 40%;
+        width: 53%;
         margin: 0;
     }
     .aside {
@@ -260,7 +266,11 @@ img {
         margin-left: -75px;
     }
 }
-
+@media screen and (max-width: 677px){
+    .nav {
+        margin-top: -19px;
+    }
+}
 @media screen and (max-width: 660px){
     #upLoadInput {
         width: 347px;
@@ -319,7 +329,7 @@ img {
         margin-bottom: 0;
     }
     .nav{
-        margin-top: -14px;
+        margin-top: -10px;
     }
     main{
         top: 80px;
@@ -360,7 +370,7 @@ img {
     }
     
     .form-width{
-        width: 51%;
+        width: 55%;
         margin: 0;
     }
     .bucket-page{
@@ -418,6 +428,16 @@ img {
     #upLoadInput {
         width: 419px;
     }
+        .form-width {
+            width: 55%;
+    }
+ 
+}
+@media screen and (max-width: 499px){
+
+    .form-width {
+        width: 65%;
+}
 }
 @media screen and (max-width: 473px){
     #upLoadInput {
@@ -450,7 +470,7 @@ img {
         margin-bottom: 0;
     }
     .nav{
-        margin-top: -14px;
+        margin-top: -10px;
     }
     main{
         top: 80px;
@@ -574,7 +594,7 @@ img {
         margin-bottom: 0;
     }
     .nav{
-        margin-top: -14px;
+        margin-top: -10px;
     }
     main{
         top: 80px;
@@ -695,7 +715,7 @@ img {
         margin-bottom: 0;
     }
     .nav{
-        margin-top: -14px;
+        margin-top: -10px;
     }
     main{
         top: 80px;
@@ -794,7 +814,7 @@ img {
 }
 @media screen and (max-width: 280px){
     .nav{
-        margin-top: -14px;
+        margin-top: -10px;
     }
     .quill {
         height: 80px;
