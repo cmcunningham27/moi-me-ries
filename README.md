@@ -60,7 +60,11 @@ Project is created with:
 
 
 ## Screenshot to deployed application
-![MOI-ME-RIES](./assets/images/what's-the-song.gif)
+![MOI-ME-RIES1](./assets/1.png)
+![MOI-ME-RIES2](./assets/2.png)
+![MOI-ME-RIES3](./assets/3.png)
+![MOI-ME-RIES4](./assets/4.png)
+![MOI-ME-RIES5](./assets/5.png)
 
 
 ## License
