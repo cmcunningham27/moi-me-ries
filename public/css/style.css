@@ -124,6 +124,8 @@ form {
 .shortSplash{
     background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
     cursor: pointer;
+    min-width: 20%;
+    /* width: 40%; */
 }
 
 .imgPlaceHolder{

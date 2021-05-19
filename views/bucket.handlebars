@@ -56,27 +56,30 @@
             </button>
            
         </div>
-       <div class="bigSplash-vh">
-        <div id="bigSplash" class="container   mt-4 border">
-            <div class="big-Splash-Main flex-row m-3">
-            {{log '!!!! user.lis_items!!!!' user.list_items.[0].image}}
-                <img id="bigSplashImage" class="" src="" alt="">
-                {{!-- <a id="bigSplashImage" class="" href="" alt="">img</a> --}}
-                <section id="bigSplashMain" class="d-flex flex-column p-3">
-                    <h2 id="bigSplashTitle">test</h2>
-                    <br>
-                    <h4><u>Description</u></h4>
-                    <p id="bigSplashText"></p>
-               </section>
+        <div class="bigSplash-vh">
+            <div id="bigSplash" class="container mt-4 border">
+                <div class="big-Splash-Main flex-row m-3">
+                {{log '!!!! user.lis_items!!!!' user.list_items.[0].image}}
+                    <img id="bigSplashImage" class="" src="" alt="">
+                    {{!-- <a id="bigSplashImage" class="" href="" alt="">img</a> --}}
+                    <section id="bigSplashMain" class="d-flex flex-column p-3 w-100">
+                        <h2 id="bigSplashTitle">test</h2>
+                        <br>
+                        <h4><u>Description</u></h4>
+                        <p id="bigSplashText"></p>
+                    </section>
+                    <div class="delUpdateBtns d-flex flex-column w-100">
+                        <button type="button" id="delSplashBtn" class="delSplashBtn btn btn-sm">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-        {{#each (limitSplashes user.list_items 3) as |done|}}
-           
-            {{> short-splashes done=done}}
-        
-        {{/each}}
+        <div class="shortSplashWrap d-flex mw-100 flex-wrap justify-self-end">
+            {{#each (limitSplashes user.list_items 4) as |done|}}
+            
+                {{> short-splashes done=done}}
+            
+            {{/each}}
         </div>
     </div>
 </div>

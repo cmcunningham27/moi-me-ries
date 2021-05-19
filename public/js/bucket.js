@@ -65,6 +65,22 @@ const newSplashBtnFn = async (list_item_id) => {
     }
 };
 
+//deletes splash from database
+const delSplash = async (list_item_id) => {
+    const response = await fetch(`api/listItems/${list_item_id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if(response.ok){
+        document.location.replace('/bucket');
+    } else {
+        alert(response.statusText);
+    }
+};
+
 //hides short form splashes then sets the info in the large form splash then switches large form splash display on
 const bigSplash = async (event) => {
     const dataset = event.target.dataset;
@@ -74,6 +90,8 @@ const bigSplash = async (event) => {
     shortSplashes.forEach((splash) => {
         splash.setAttribute('style','display:none');
     });
+
+    document.querySelector('#delSplashBtn').setAttribute('data-list_item_id', dataset.id);
 
     document.querySelector('#bigSplashTitle').innerHTML = dataset.title;
     document.querySelector('#bigSplashText').innerHTML = dataset.content;
@@ -89,15 +107,18 @@ const bigSplash = async (event) => {
 
 //delegates event listener across main section  (right hand column)
 document.querySelector('#mainWrap').addEventListener('click', (event) => {
-
     const target = event.target;
+    console.log(target);
     const list_item_id = target.dataset.list_item_id;
     if(target.matches('.newSplash')){
         newSplashBtnFn(list_item_id);
-    } else if(target.matches('.shortSplash')){
+    } else if(target.matches('.shortSplash') || target.matches('.imgPlaceHolder')){
+        console.log(target);
         bigSplash(event);
     } else if(target.matches('#newDropBtn')){
         addDrop();
+    } else if(target.matches('#delSplashBtn')){
+        delSplash(list_item_id);
     }
 });
 
