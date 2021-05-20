@@ -10,6 +10,11 @@ body {
     font-size:100px
 }
 
+.signupLink,
+.loginLink {
+    cursor: pointer;
+}
+
 .circle1 {
     height: 80px;
     width: 80px;
@@ -36,7 +41,6 @@ body {
 }
 
 main {
-
     position: absolute;
     top: 143px;
     left: 0;
@@ -52,6 +56,11 @@ main {
     box-shadow: 0 1px 6px 0 black;
 }
 
+#profPicForm {
+    /* justify-self: center; */
+    display: none;
+}
+
 .text {
     background-color: rgba(255, 255, 255, 0.5);
 }
@@ -60,6 +69,10 @@ main {
     width: 25%;
     margin: 10px 10px 10px 0;
     box-shadow: 1px 7px 6px 0 black;
+}
+
+.makeSplash{
+    cursor: pointer;
 }
 
 .section {
@@ -115,6 +128,8 @@ form {
 .shortSplash{
     background-image: linear-gradient(rgba(12, 9, 188, 20%), rgba(248, 11, 11, 100%));
     cursor: pointer;
+    min-width: 20%;
+    /* width: 40%; */
 }
 
 .imgPlaceHolder{

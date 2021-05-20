@@ -13,30 +13,41 @@ router.post('/signup', async (req, res) => {
             res.status(200).json(userData);
         });
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
 
-//updates user
-// router.put('/:id', withAuth, async (req, res) => {
-//     try {
-//         const userData = await User.update(req.body, {
-//             where: {
-//                 id: req.params.id
-//             }
-//         });
+// adds profile pic to user
+router.post('/pic/:id', withAuth, async (req, res) => {
+    try {
 
-//         if(!userData){
-//             res.status(404).json({ message: 'cannot find user' });
-//         }
+        if(!req.files){
+            res.status(400).json({ message: 'there was a problem with your photo' });
+        }
 
-//         res.status(200).json(err);
+        profPic = req.files.profPic.data;
 
-//     } catch (err) {
+        const userData = await User.update({
+            image: profPic
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        });
 
-//         res.status(500).json(err);
-//     }
-// });
+        // if(!userData){
+        //     res.status(404).json({ message: 'cannot find user' });
+        // }
+
+        // res.status(200).json(err);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 //user login
 router.post('/login', async (req, res) => {
@@ -66,6 +77,7 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
