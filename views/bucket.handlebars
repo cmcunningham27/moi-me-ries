@@ -4,14 +4,14 @@
 </div>
 <div class="bucket-page  flex-row">
     <div id="listItemList" class="aside bg-light p-4">
-        {{log user '!!!USER'}}
+        {{!-- {{log user '!!!USER'}} --}}
         {{!-- {{#if logged_in}} --}}
         <h5><u>DROPS:</u></h5>
         <ol id="dropList">
             {{#each user.list_items as |todo|}}
             {{#unless todo.isDone}}
-            {{log todo.isDone}}
-                <li id="dropNum{{todo.id}}" class="makeSplash text-dark" data-list_item_id="{{todo.id}}" data-title="{{todo.title}}" data-user_id="{{todo.user_id}}">{{todo.title}}</li>
+            {{!-- {{log todo.isDone}} --}}
+                <li id="dropNum{{todo.id}}" class="makeSplash text-dark" data-list_item_id="{{todo.id}}" data-title="{{todo.title}}">{{todo.title}}</li>
             {{/unless}}
             {{/each}}
         </ol>
@@ -23,7 +23,7 @@
             {{#if done.isDone}}
             {{!-- {{log done '!!!!splash title!!!!'}} --}}
             <a href="">
-                <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}"  style="text-decoration:line-through">{{done.title}}</li>
+                <li class="splashTitle" data-id={{done.id}} style="text-decoration:line-through">{{done.title}}</li>
                 {{!-- <li class="splashTitle" data-id ={{done.id}} data-title="{{done.title}}" data-content="{{done.content}}" data-image="{{done.image}}"  style="text-decoration:line-through">{{done.title}}</li> --}}
             </a>
             {{/if}}
@@ -59,7 +59,7 @@
         <div class="bigSplash-vh">
             <div id="bigSplash" class="container mt-4 border">
                 <div class="big-Splash-Main flex-row m-3">
-                {{log '!!!! user.lis_items!!!!' user.list_items.[0].image}}
+                {{!-- {{log '!!!! user.lis_items!!!!' user.list_items.[0].image}} --}}
                     <img id="bigSplashImage" class="" src="" alt="">
                     {{!-- <a id="bigSplashImage" class="" href="" alt="">img</a> --}}
                     <section id="bigSplashMain" class="d-flex flex-column p-3 w-100">

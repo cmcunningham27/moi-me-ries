@@ -11,7 +11,7 @@ shortSplash.forEach((splash)=>{
 const toggleFn = (title, list_item_id) => {
     document.getElementById('title').innerHTML = 'Tell us about your ' + title + ' SPLASH adventure:';
 
-    document.querySelector('.newSplash').setAttribute('data-title', title);
+    // document.querySelector('.newSplash').setAttribute('data-title', title);
     // document.querySelector('.newSplash').setAttribute('data-user_id', user_id);
     document.querySelector('.newSplash').setAttribute('data-list_item_id', list_item_id);
     document.querySelector('.photo-form').setAttribute('action', `/api/listItems/pics/${list_item_id}`);
@@ -46,6 +46,21 @@ const addDrop = async () => {
 };
 
 //image POST call made from HTML
+
+//get call to grab image data
+// const rendImage = async () => {
+//     const response = await fetch('/api/user/pics', {
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//     });
+
+//     if(response.ok){
+//         //render images here?
+//     } else {
+//         alert(response.statusText);
+//     }
+// };
 
 //takes data form the create splash menu and the drop that was clicked on and makes new splash
 const newSplashBtnFn = async (list_item_id) => {
@@ -82,38 +97,48 @@ const delSplash = async (list_item_id) => {
 };
 
 //hides short form splashes then sets the info in the large form splash then switches large form splash display on
-const bigSplash = async (event) => {
+const bigSplash = (event) => {
     const dataset = event.target.dataset;
 
-    const shortSplashes=document.querySelectorAll('.shortSplash');
+    const itemCall = async () => {
+        const response = await fetch(`/api/listItems/${dataset.id}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
-    shortSplashes.forEach((splash) => {
-        splash.setAttribute('style','display:none');
-    });
+        if(response.ok){
+            const shortSplashes=document.querySelectorAll('.shortSplash');
 
-    document.querySelector('#delSplashBtn').setAttribute('data-list_item_id', dataset.id);
+            shortSplashes.forEach((splash) => {
+                splash.setAttribute('style','display:none');
+            });
 
-    document.querySelector('#bigSplashTitle').innerHTML = dataset.title;
-    document.querySelector('#bigSplashText').innerHTML = dataset.content;
+            document.querySelector('#delSplashBtn').setAttribute('data-list_item_id', dataset.id);
 
-    let blob = new Blob([dataset.image], {image: 'image/png'});
-    const imageUrl = URL.createObjectURL(blob);
-    // const imageUrl = URL.createObjectURL(dataset.image);
+            const itemData = await response.json();
 
-    document.querySelector('#bigSplashImage').setAttribute('src', imageUrl);
-    document.querySelector('#bigSplashImage').srcObject = dataset.image;
-    document.querySelector('#bigSplash').style = 'display:flex';
+            document.querySelector('#bigSplashTitle').innerHTML = itemData.title;
+            document.querySelector('#bigSplashText').innerHTML = itemData.content;
+            document.querySelector('#bigSplashImage').setAttribute('src', itemData.image);
+            document.querySelector('#bigSplash').style = 'display:flex';
+        } else {
+            alert('something went wrong');
+        }
+    };
+
+    itemCall();
 };
 
 //delegates event listener across main section  (right hand column)
 document.querySelector('#mainWrap').addEventListener('click', (event) => {
     const target = event.target;
-    console.log(target);
+    // console.log(target);
     const list_item_id = target.dataset.list_item_id;
     if(target.matches('.newSplash')){
         newSplashBtnFn(list_item_id);
-    } else if(target.matches('.shortSplash') || target.matches('.imgPlaceHolder')){
-        console.log(target);
+    } else if(target.matches('.shortSplash') || target.matches('.shortSplashImg')){
+        // console.log(target);
         bigSplash(event);
     } else if(target.matches('#newDropBtn')){
         addDrop();
@@ -126,7 +151,7 @@ document.querySelector('#mainWrap').addEventListener('click', (event) => {
 document.querySelector('#listItemList').addEventListener('click', (event) => {
     event.preventDefault();
     const target = event.target;
-    const dataset = event.target.dataset;
+    const dataset = target.dataset;
 
     if (target.matches('.splashTitle')){
         bigSplash(event);

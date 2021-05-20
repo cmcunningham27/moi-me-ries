@@ -18,6 +18,26 @@ router.post('/signup', async (req, res) => {
     }
 });
 
+//Send images to be rendered on page load
+// router.get('/pics', withAuth, async (req, res) => {
+//     try {
+//         const userData = await User.findByPk(req.session.user_id, {
+//             include: {
+//                 model: ListItem,
+//                 attributes: ['image']
+//             },
+//             attributes: { exclude : ['password'] },
+//         });
+
+//         const userImages = userData({ plain: true });
+//         //base64 here then send
+
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500);
+//     }
+// });
+
 //updates user
 // router.put('/:id', withAuth, async (req, res) => {
 //     try {

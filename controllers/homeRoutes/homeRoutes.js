@@ -14,25 +14,8 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-// router.get('/bucket', withAuth, async (req, res, next) => {
-//     try {
-//         const userData = await User.findByPk(req.session.user_id, {
-//             include: { model: ListItem},
-//             attributes: {exclude: ['password'] },
-//         });
-
-//         const user = userData.get({ plain: true });
-
-//         res.json({ user });
-//         next();
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
 //directs user to their bucket page and passes along all of their user list-item data
-router.get('/bucket', withAuth, async (req, res, next) => {
+router.get('/bucket', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             include: { model: ListItem},
@@ -41,15 +24,28 @@ router.get('/bucket', withAuth, async (req, res, next) => {
 
         const user = userData.get({ plain: true });
 
+
+        // console.log(user.list_items);
+        user.list_items.forEach((userItems) => {
+            // console.log('!!!! foreach !!!!', userItems.image);
+            //iterating over users listItem array and replacing the buffer on the image property with toString of buffer
+            if(userItems.image) {
+                userItems.image = 'data:image/jpeg;base64, ' + userItems.image.toString('base64');
+            }
+        }) ;
+
+        // console.log(user);
+
         res.render('bucket', {
             user,
             logged_in: true
         });
-        // next();
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
+
 
 //routes user to login page
 router.get('/login', (req, res) => {
