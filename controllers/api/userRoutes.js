@@ -18,46 +18,36 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-//Send images to be rendered on page load
-// router.get('/pics', withAuth, async (req, res) => {
-//     try {
-//         const userData = await User.findByPk(req.session.user_id, {
-//             include: {
-//                 model: ListItem,
-//                 attributes: ['image']
-//             },
-//             attributes: { exclude : ['password'] },
-//         });
+// adds profile pic to user
+router.post('/pic/:id', withAuth, async (req, res) => {
+    try {
 
-//         const userImages = userData({ plain: true });
-//         //base64 here then send
+        if(!req.files){
+            res.status(400).json({ message: 'there was a problem with your photo' });
+        }
 
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500);
-//     }
-// });
+        profPic = req.files.profPic.data;
 
-//updates user
-// router.put('/:id', withAuth, async (req, res) => {
-//     try {
-//         const userData = await User.update(req.body, {
-//             where: {
-//                 id: req.params.id
-//             }
-//         });
+        const userData = await User.update({
+            image: profPic
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        });
 
-//         if(!userData){
-//             res.status(404).json({ message: 'cannot find user' });
-//         }
+        // if(!userData){
+        //     res.status(404).json({ message: 'cannot find user' });
+        // }
 
-//         res.status(200).json(err);
+        // res.status(200).json(err);
 
-//     } catch (err) {
-
-//         res.status(500).json(err);
-//     }
-// });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 //user login
 router.post('/login', async (req, res) => {

@@ -21,12 +21,12 @@ router.post('/', withAuth, async (req, res) => {
 
 //sends item info for big splash
 router.get('/:id', withAuth, async (req, res) => {
-    console.log(req.params.id);
     try {
         const listItemData = await ListItem.findByPk(req.params.id);
-        const listItem = listItemData.get({ plain: true })
-        listItem.image = 'data:image/jpeg;base64, ' + listItem.image.toString('base64')
-        // console.log(listItem, 'line 26');
+        const listItem = listItemData.get({ plain: true });
+
+        listItem.image = 'data:image/jpeg;base64, ' + listItem.image.toString('base64');
+
         res.status(200).json(listItem);
     } catch (err) {
         console.log(err);
@@ -42,10 +42,7 @@ router.post('/pics/:id', async (req, res) => {
             res.status(400).json({ message: 'there was a problem with your photo'})
         }
 
-        // const splashPic = new Blob([req.files.splashPic], {type: 'image/jpeg'});
-        // console.log(req.files.splashPic.data.toString('base64'), '!!!splashPic!!!!');
         const splashPic = req.files.splashPic.data;
-        // console.log(splashPic, '!!!splashPic!!!!');
         const listItemData = ListItem.update({
             image: splashPic,
         },

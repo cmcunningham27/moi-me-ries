@@ -2,19 +2,22 @@ document.getElementById('newSplash_form').style.display = 'none';
 document.getElementById('newDrop_form').style.display = 'flex';
 document.getElementById('bigSplash').style.display = 'none';
 
-const shortSplash= document.querySelectorAll('.shortSplash');
-shortSplash.forEach((splash)=>{
-    splash.style.display='flex';
-});
+//toggles navbar to photo upload
+const navBarToggle = (event) => {
+    document.querySelector('#bucketNavBtn').setAttribute('style', 'display: none');
+    document.querySelector('#addProfPicBtn').setAttribute('style', 'display: none');
+    document.querySelector('#logout').setAttribute('style', 'display: none');
+
+    document.querySelector('#profPicForm').setAttribute('action', `/api/users/pic/${event.target.dataset.user_id}`);
+    document.querySelector('#profPicForm').setAttribute('style', 'display: flex');
+};
 
 //toggles between the add drop input bar and the add a splash (with photo and description) menu
 const toggleFn = (title, list_item_id) => {
     document.getElementById('title').innerHTML = 'Tell us about your ' + title + ' SPLASH adventure:';
 
-    // document.querySelector('.newSplash').setAttribute('data-title', title);
-    // document.querySelector('.newSplash').setAttribute('data-user_id', user_id);
     document.querySelector('.newSplash').setAttribute('data-list_item_id', list_item_id);
-    document.querySelector('.photo-form').setAttribute('action', `/api/listItems/pics/${list_item_id}`);
+    document.querySelector('#splashPicForm').setAttribute('action', `/api/listItems/pics/${list_item_id}`);
 
     document.getElementById('newSplash_form').style.display = 'flex';
     document.getElementById('newDrop_form').style.display = 'none';
@@ -46,21 +49,6 @@ const addDrop = async () => {
 };
 
 //image POST call made from HTML
-
-//get call to grab image data
-// const rendImage = async () => {
-//     const response = await fetch('/api/user/pics', {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//     });
-
-//     if(response.ok){
-//         //render images here?
-//     } else {
-//         alert(response.statusText);
-//     }
-// };
 
 //takes data form the create splash menu and the drop that was clicked on and makes new splash
 const newSplashBtnFn = async (list_item_id) => {
@@ -130,15 +118,21 @@ const bigSplash = (event) => {
     itemCall();
 };
 
+//not delegating bc evnt listener overrides built in fn for browsing local files
+document.querySelector('#addProfPicBtn').addEventListener('click', (event) => {
+    event.preventDefault();
+    navBarToggle(event);
+});
+
+
 //delegates event listener across main section  (right hand column)
 document.querySelector('#mainWrap').addEventListener('click', (event) => {
     const target = event.target;
-    // console.log(target);
     const list_item_id = target.dataset.list_item_id;
+
     if(target.matches('.newSplash')){
         newSplashBtnFn(list_item_id);
     } else if(target.matches('.shortSplash') || target.matches('.shortSplashImg')){
-        // console.log(target);
         bigSplash(event);
     } else if(target.matches('#newDropBtn')){
         addDrop();

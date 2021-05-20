@@ -41,7 +41,6 @@ body {
 }
 
 main {
-
     position: absolute;
     top: 143px;
     left: 0;
@@ -55,6 +54,11 @@ main {
 
 .nav {
     box-shadow: 0 1px 6px 0 black;
+}
+
+#profPicForm {
+    /* justify-self: center; */
+    display: none;
 }
 
 .text {

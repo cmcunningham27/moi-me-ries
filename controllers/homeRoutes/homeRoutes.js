@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, ListItem, ToDo, Done } = require('../../models');
 const withAuth = require('../../utils/auth');
-const resFinish = require('../../utils/resHook');
 
 //pre sign in/login intro page
 router.get('/', async (req, res) => {
@@ -24,17 +23,14 @@ router.get('/bucket', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
-
-        // console.log(user.list_items);
+        user.image = 'data:image/jpeg;base64, ' + user.image.toString('base64');
         user.list_items.forEach((userItems) => {
-            // console.log('!!!! foreach !!!!', userItems.image);
             //iterating over users listItem array and replacing the buffer on the image property with toString of buffer
             if(userItems.image) {
                 userItems.image = 'data:image/jpeg;base64, ' + userItems.image.toString('base64');
             }
         }) ;
 
-        // console.log(user);
 
         res.render('bucket', {
             user,
