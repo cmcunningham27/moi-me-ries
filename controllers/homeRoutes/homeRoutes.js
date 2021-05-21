@@ -20,17 +20,18 @@ router.get('/bucket', withAuth, async (req, res) => {
             include: { model: ListItem},
             attributes: {exclude: ['password'] },
         });
-
         const user = userData.get({ plain: true });
 
-        user.image = 'data:image/jpeg;base64, ' + user.image.toString('base64');
+        if(user.image){
+            user.image = 'data:image/jpeg;base64, ' + user.image.toString('base64');
+        }
+
         user.list_items.forEach((userItems) => {
             //iterating over users listItem array and replacing the buffer on the image property with toString of buffer
             if(userItems.image) {
                 userItems.image = 'data:image/jpeg;base64, ' + userItems.image.toString('base64');
             }
         }) ;
-
 
         res.render('bucket', {
             user,
