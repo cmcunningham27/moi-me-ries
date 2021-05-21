@@ -124,6 +124,12 @@ document.querySelector('#addProfPicBtn').addEventListener('click', (event) => {
     navBarToggle(event);
 });
 
+document.querySelector('#profUpLoadSubBtn').addEventListener('click', () => {
+    setTimeout(() => {
+        document.location.reload();
+    }, 100);
+});
+
 
 //delegates event listener across main section  (right hand column)
 document.querySelector('#mainWrap').addEventListener('click', (event) => {
