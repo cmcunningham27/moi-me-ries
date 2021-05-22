@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
 router.get('/bucket', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
-            include: { model: ListItem},
-            attributes: {exclude: ['password'] },
+            include: { model: ListItem },
+            attributes: { exclude: ['password'] },
         });
 
         const user = userData.get({ plain: true });
