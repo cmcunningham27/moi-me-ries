@@ -13,11 +13,16 @@
 <body>
     <div class="fixed">
         <div class="top h-100 d-flex flex-column text-body">
+            {{log user.image}}
             {{#if logged_in}}
             <div class="userName ps-2 mb-0">
                 <h5 class="name-users">{{user.name}}'s</h5>
             </div>
-            <h1 class="loggedInH1">M{{!--<span class="circle1 rounded-circle"></span>--}} <img src="{{user.image}}" class="circle1 rounded-circle" alt=""> I-ME-RIES</h1>
+            {{#if user.image}}
+            <h1 class="loggedInH1">M<img src="{{user.image}}" class="circle1 rounded-circle" alt=""> I-ME-RIES</h1>
+            {{else}}
+            <h1 class="loggedInH1">M<span class="circle1 rounded-circle"></span> I-ME-RIES</h1>
+            {{/if}}
             {{else}}
             <h1 class="loggedOutH1">M<span class="circle2 rounded-circle"></span>I-ME-RIES</h1>
             {{/if}}
